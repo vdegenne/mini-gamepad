@@ -1,0 +1,34 @@
+{
+	"name": "@vdegenne/mini-gamepad",
+	"type": "module",
+	"devDependencies": {
+		"@snar/lit": "^1.6.0",
+		"@types/node": "^22.13.11",
+		"@vdegenne/debouncer": "^1.0.3",
+		"inspector-elements": "^0.1.0",
+		"lit": "^3.2.1",
+		"material-shell": "^1.2.7",
+		"rollup-plugin-material-all": "^1.2.2",
+		"toastit": "^2.1.3",
+		"typescript": "^5.8.2",
+		"vite": "^6.2.2",
+		"wireit": "^0.14.11"
+	},
+	"scripts": {
+		"dev": "vite --open ./test/index.html",
+		"build": "wireit"
+	},
+	"wireit": {
+		"build": {
+			"command": "tsc --pretty",
+			"clean": "if-file-deleted",
+			"files": [
+				"tsconfig.json",
+				"src"
+			],
+			"output": [
+				"lib"
+			]
+		}
+	}
+}
