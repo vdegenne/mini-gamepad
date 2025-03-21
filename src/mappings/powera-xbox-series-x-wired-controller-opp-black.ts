@@ -1,7 +1,7 @@
 import {type GamepadModel} from './index.js';
 
 const model: GamepadModel = {
-	name: 'PowerA Xbox Sedries X Wired Controller OPP Black (Vendor: 20d6 Product: 2005)',
+	name: 'PowerA Xbox Series X Wired Controller OPP Black (Vendor: 20d6 Product: 2005)',
 	mapping: {
 		L1: 'button4',
 		L2: 'axis2',
