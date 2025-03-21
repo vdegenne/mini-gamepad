@@ -1,14 +1,19 @@
 import {Debouncer} from '@vdegenne/debouncer';
 import {MGamepad} from './MGamepad.js';
-import {startPoll} from './poll.js';
 import {HOOKS} from './hooks.js';
+import {MiniGamepadOptions} from './index.js';
+import {Poll} from './poll.js';
 
-class GamepadsManager {
+export class GamepadsManager {
 	readonly gamepads: (MGamepad | null)[] = [null, null, null, null];
 
-	#connectionChangedDebouncer: Debouncer;
+	#options: MiniGamepadOptions;
 
-	constructor() {
+	#connectionChangedDebouncer: Debouncer;
+	#poll: Poll;
+
+	constructor(options: MiniGamepadOptions) {
+		this.#options = options;
 		this.#connectionChangedDebouncer = new Debouncer(
 			this.#onConnectionChanged,
 			10,
@@ -20,6 +25,8 @@ class GamepadsManager {
 		window.addEventListener('gamepaddisconnected', () =>
 			this.#connectionChangedDebouncer.call(),
 		);
+
+		this.#poll = new Poll(this, options);
 	}
 
 	#onConnectionChanged = () => {
@@ -38,20 +45,20 @@ class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		console.log(`${gamepad.id} just got connected.`);
-		this.gamepads[index] = new MGamepad(gamepad);
+		this.gamepads[index] = new MGamepad(gamepad, this.#options);
 		HOOKS.forEach((hook) => hook.hooks('connect', this.gamepads[index]));
-		startPoll();
+		this.#poll.startPoll();
 	}
 
 	#onDisconnect(index: number) {
 		const mgamepad = this.gamepads[index];
-		if (!mgamepad || mgamepad.gamepad.index !== index) {
+		if (!mgamepad || mgamepad._gamepad.index !== index) {
 			throw new Error('Something not quite right here.');
 		}
-		console.log(`${mgamepad.gamepad.id} got disconnected.`);
+		console.log(`${mgamepad._gamepad.id} got disconnected.`);
 		HOOKS.forEach((hook) => hook.hooks('disconnect', this.gamepads[index]));
 		this.gamepads[index] = null;
 	}
 }
 
-export const gamepadsManager = new GamepadsManager();
+// export const gamepadsManager = new GamepadsManager();

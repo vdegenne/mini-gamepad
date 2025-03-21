@@ -1,50 +1,69 @@
 import {sleep} from './debug.js';
-import {gamepadsManager} from './gamepadsManager.js';
+import {GamepadsManager} from './gamepadsManager.js';
 import {type HookName, HOOKS} from './hooks.js';
+import {MiniGamepadOptions} from './index.js';
 
-let running = false;
-
-async function poll() {
-	if (!running) return;
-
-	gamepadsManager.gamepads.forEach((gamepad, index) => {
-		// console.log(index);
-		if (process.env.NODE_ENV) {
-			HOOKS.forEach((hook) =>
-				hook.hooks(
-					`gamepad${index}info` as HookName,
-					gamepad ? JSON.stringify(gamepad?.getState(), null, 2) : undefined,
-				),
-			);
+const timer = new (class {
+	#every = 1000;
+	#i = 0;
+	#startTime!: number;
+	constructor() {
+		this.reset();
+	}
+	reset() {
+		this.#startTime = Date.now();
+		this.#i = 0;
+	}
+	tick() {
+		if (++this.#i >= this.#every) {
+			console.log((Date.now() - this.#startTime) / 1000 + 's');
+			this.reset();
 		}
-		if (gamepad) {
-			gamepad.detectChanges();
+	}
+})();
+
+export class Poll {
+	#running = false;
+
+	constructor(
+		private gamepadsManager: GamepadsManager,
+		private options: MiniGamepadOptions,
+	) {}
+
+	async #poll() {
+		if (!this.#running) return;
+
+		for (let index = 0; index < this.gamepadsManager.gamepads.length; ++index) {
+			timer.tick();
+			const gamepad = this.gamepadsManager.gamepads[index];
+			if (process.env.NODE_ENV === 'development') {
+				HOOKS.forEach((hook) =>
+					hook.hooks(
+						`gamepad${index}info` as HookName,
+						gamepad
+							? JSON.stringify({state: gamepad?.getState()}, null, 2)
+							: undefined,
+					),
+				);
+			}
+			if (gamepad) {
+				await gamepad._detectChanges();
+			}
 		}
-	});
 
-	if (process.env.NODE_ENV) {
-		await sleep(1);
+		await sleep(this.options.pollSleepMs);
+		requestAnimationFrame(this.#poll.bind(this));
 	}
-	requestAnimationFrame(poll);
-}
 
-export function startPoll() {
-	if (!running) {
-		running = true;
-		requestAnimationFrame(poll);
+	startPoll() {
+		if (!this.#running) {
+			this.#running = true;
+			requestAnimationFrame(this.#poll.bind(this));
+		}
 	}
-}
-
-export function stopPoll() {
-	if (running) {
-		running = false;
-	}
-}
-
-export function togglePoll() {
-	if (!running) {
-		startPoll();
-	} else {
-		stopPoll();
+	stopPoll() {
+		if (this.#running) {
+			this.#running = false;
+		}
 	}
 }

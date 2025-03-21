@@ -1,5 +1,6 @@
 export type HookName =
 	| 'gamepad0info'
+	| 'gamepad0axes'
 	| 'gamepad1info'
 	| 'gamepad2info'
 	| 'gamepad3info'

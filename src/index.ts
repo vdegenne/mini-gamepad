@@ -1,8 +1,11 @@
-import './gamepadsManager.ts';
-import {type Hookable, HOOKS, type HookName} from './hooks.js';
+import {GamepadsManager} from './gamepadsManager.js';
+import {HOOKS, type Hookable, type HookName} from './hooks.js';
 import {type MGamepad} from './MGamepad.js';
 
-interface MiniGamepadOptions {}
+export interface MiniGamepadOptions {
+	axesThreshold: number;
+	pollSleepMs: number;
+}
 
 export class HookController implements Hookable {
 	#host: MiniGamepad;
@@ -34,8 +37,11 @@ export class MiniGamepad {
 	#options: MiniGamepadOptions;
 	constructor(options?: Partial<MiniGamepadOptions>) {
 		this.#options = {
+			axesThreshold: 0.4,
+			pollSleepMs: 25,
 			...(options ?? {}),
 		};
+		new GamepadsManager(this.#options);
 	}
 
 	onConnect(callback: (gamepad: MGamepad) => void) {

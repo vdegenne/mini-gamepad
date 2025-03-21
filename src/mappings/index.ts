@@ -3,19 +3,19 @@ import PowerAXBox from './powera-xbox-series-x-wired-controller-opp-black.js';
 
 export interface UniversalMapping {
 	L1: ButtonName;
-	L2?: ButtonName;
+	L2: ButtonName;
 	R1: ButtonName;
-	R2?: ButtonName;
+	R2: ButtonName;
 
-	LEFT_STICK_UP?: ButtonName;
-	LEFT_STICK_RIGHT?: ButtonName;
-	LEFT_STICK_DOWN?: ButtonName;
-	LEFT_STICK_LEFT?: ButtonName;
-	LEFT_STICK_PRESS?: ButtonName;
+	LEFT_STICK_UP: ButtonName;
+	LEFT_STICK_RIGHT: ButtonName;
+	LEFT_STICK_DOWN: ButtonName;
+	LEFT_STICK_LEFT: ButtonName;
+	LEFT_STICK_PRESS: ButtonName;
 
-	LEFT_BUTTONS_TOP: ButtonName;
+	LEFT_BUTTONS_UP: ButtonName;
 	LEFT_BUTTONS_RIGHT: ButtonName;
-	LEFT_BUTTONS_BOTTOM: ButtonName;
+	LEFT_BUTTONS_DOWN: ButtonName;
 	LEFT_BUTTONS_LEFT: ButtonName;
 
 	RIGHT_BUTTONS_TOP: ButtonName;
@@ -23,17 +23,17 @@ export interface UniversalMapping {
 	RIGHT_BUTTONS_BOTTOM: ButtonName;
 	RIGHT_BUTTONS_LEFT: ButtonName;
 
-	RIGHT_STICK_UP?: ButtonName;
-	RIGHT_STICK_RIGHT?: ButtonName;
-	RIGHT_STICK_DOWN?: ButtonName;
-	RIGHT_STICK_LEFT?: ButtonName;
-	RIGHT_STICK_PRESS?: ButtonName;
+	RIGHT_STICK_UP: ButtonName;
+	RIGHT_STICK_RIGHT: ButtonName;
+	RIGHT_STICK_DOWN: ButtonName;
+	RIGHT_STICK_LEFT: ButtonName;
+	RIGHT_STICK_PRESS: ButtonName;
 
-	MIDDLE_LEFT?: ButtonName;
-	MIDDLE_RIGHT?: ButtonName;
+	MIDDLE_LEFT: ButtonName;
+	MIDDLE_RIGHT: ButtonName;
 
-	MIDDLE_TOP?: ButtonName;
-	MIDDLE_BOTTOM?: ButtonName;
+	MIDDLE_TOP: ButtonName;
+	MIDDLE_BOTTOM: ButtonName;
 }
 
 interface XBoxMapping {

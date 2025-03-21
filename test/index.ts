@@ -5,11 +5,7 @@ import {customElement} from 'lit/decorators.js';
 import {materialShellLoadingOff} from 'material-shell';
 import {liveInfo} from '../src/debug.js';
 import '../src/index.ts';
-import {startPoll} from '../src/poll.js';
 import {MiniGamepad} from '../src/index.js';
-
-// Bypass startPoll on first connect
-startPoll();
 
 @customElement('app-shell')
 @withController(liveInfo)
@@ -27,14 +23,35 @@ export class AppShell extends LitElement {
 	protected firstUpdated() {
 		materialShellLoadingOff.call(this);
 
-		const minigp = new MiniGamepad({});
+		const minigp = new MiniGamepad({pollSleepMs: 0, axesThreshold: 0.5});
 		minigp.onConnect((gamepad) => {
 			const {
 				RIGHT_BUTTONS_TOP,
 				RIGHT_BUTTONS_RIGHT,
 				RIGHT_BUTTONS_BOTTOM,
 				RIGHT_BUTTONS_LEFT,
+				LEFT_BUTTONS_UP,
+				LEFT_BUTTONS_DOWN,
+				LEFT_STICK_UP,
+				LEFT_STICK_DOWN,
 			} = gamepad.mapping;
+
+			gamepad
+				.for(LEFT_BUTTONS_UP)
+				.on(() => {
+					console.log('up before');
+				})
+				.after(() => {
+					console.log('up after');
+				});
+			gamepad
+				.for(LEFT_BUTTONS_DOWN)
+				.before(() => {
+					console.log('down before');
+				})
+				.after(() => {
+					console.log('down after');
+				});
 
 			gamepad
 				.for(RIGHT_BUTTONS_TOP)
@@ -42,10 +59,7 @@ export class AppShell extends LitElement {
 				.after(() => (this.button4Pushed = false));
 			gamepad
 				.for(RIGHT_BUTTONS_BOTTOM)
-				.before(() => {
-					console.log(this);
-					this.button1Pushed = true;
-				})
+				.before(() => (this.button1Pushed = true))
 				.after(() => (this.button1Pushed = false));
 
 			gamepad

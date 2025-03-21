@@ -1,4 +1,6 @@
 import {type ButtonName} from './buttons.js';
+import {sleep} from './debug.js';
+import {MiniGamepadOptions} from './index.js';
 import {getMappingFromModel, UniversalMapping} from './mappings/index.js';
 
 interface State {
@@ -9,9 +11,11 @@ interface State {
 type EventMap = Map<ButtonName, (() => void)[]>;
 
 export class MGamepad {
-	readonly gamepad: Gamepad;
+	readonly _gamepad: Gamepad;
 	#state!: State;
 	readonly mapping: UniversalMapping;
+
+	axesThreshold: number;
 
 	#events: {before: EventMap; on: EventMap; after: EventMap} = {
 		before: new Map(),
@@ -19,13 +23,14 @@ export class MGamepad {
 		after: new Map(),
 	};
 
-	constructor(gamepad: Gamepad) {
-		this.gamepad = gamepad;
+	constructor(gamepad: Gamepad, options?: MiniGamepadOptions) {
+		this.axesThreshold = options?.axesThreshold ?? 0.5;
+		this._gamepad = gamepad;
 		this.mapping = getMappingFromModel(gamepad.id);
 		// Initial state
 		this.#state = {
-			buttons: [...this.gamepad.buttons.map((b) => b.pressed)],
-			axes: [...this.gamepad.axes],
+			buttons: [...this._gamepad.buttons.map((b) => b.pressed)],
+			axes: [...this._gamepad.axes],
 		};
 	}
 
@@ -33,10 +38,10 @@ export class MGamepad {
 		return this.#state;
 	}
 
-	detectChanges() {
+	async _detectChanges() {
 		const prevState = {...this.#state};
 
-		const updatedGamepad = navigator.getGamepads()[this.gamepad.index];
+		const updatedGamepad = navigator.getGamepads()[this._gamepad.index];
 		if (!updatedGamepad) {
 			throw new Error('Trying to detect changes from a ghost gamepad.');
 		}
@@ -58,6 +63,36 @@ export class MGamepad {
 				this.#events.after.get(buttonName)?.forEach((callback) => callback());
 			}
 		});
+
+		for (let i = 0; i < this.#state.axes.length; ++i) {
+			const level = this.#state.axes[i];
+			const prevValue = prevState.axes[i];
+			const threshold = this.axesThreshold;
+
+			const isPositivePressed = level > threshold;
+			const wasPositivePressed = prevValue > threshold;
+			const isNegativePressed = level < -threshold;
+			const wasNegativePressed = prevValue < -threshold;
+
+			const posButton = `+axis${i}` as ButtonName;
+			const negButton = `-axis${i}` as ButtonName;
+
+			if (!wasPositivePressed && isPositivePressed) {
+				this.#events.before.get(posButton)?.forEach((cb) => cb());
+			} else if (isPositivePressed) {
+				this.#events.on.get(posButton)?.forEach((cb) => cb());
+			} else if (wasPositivePressed && !isPositivePressed) {
+				this.#events.after.get(posButton)?.forEach((cb) => cb());
+			}
+
+			if (!wasNegativePressed && isNegativePressed) {
+				this.#events.before.get(negButton)?.forEach((cb) => cb());
+			} else if (isNegativePressed) {
+				this.#events.on.get(negButton)?.forEach((cb) => cb());
+			} else if (wasNegativePressed && !isNegativePressed) {
+				this.#events.after.get(negButton)?.forEach((cb) => cb());
+			}
+		}
 	}
 
 	/**
