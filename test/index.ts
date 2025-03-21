@@ -29,18 +29,34 @@ export class AppShell extends LitElement {
 
 		const minigp = new MiniGamepad({});
 		minigp.onConnect((gamepad) => {
+			const {
+				RIGHT_BUTTONS_TOP,
+				RIGHT_BUTTONS_RIGHT,
+				RIGHT_BUTTONS_BOTTOM,
+				RIGHT_BUTTONS_LEFT,
+			} = gamepad.mapping;
+
 			gamepad
-				.before('button0', () => (this.button1Pushed = true))
-				.after('button0', () => (this.button1Pushed = false));
+				.for(RIGHT_BUTTONS_TOP)
+				.before(() => (this.button4Pushed = true))
+				.after(() => (this.button4Pushed = false));
 			gamepad
-				.before('button1', () => (this.button2Pushed = true))
-				.after('button1', () => (this.button2Pushed = false));
+				.for(RIGHT_BUTTONS_BOTTOM)
+				.before(() => {
+					console.log(this);
+					this.button1Pushed = true;
+				})
+				.after(() => (this.button1Pushed = false));
+
 			gamepad
-				.before('button2', () => (this.button3Pushed = true))
-				.after('button2', () => (this.button3Pushed = false));
+				.for(RIGHT_BUTTONS_LEFT)
+				.before(() => (this.button3Pushed = true))
+				.after(() => (this.button3Pushed = false));
+
 			gamepad
-				.before('button3', () => (this.button4Pushed = true))
-				.after('button3', () => (this.button4Pushed = false));
+				.for(RIGHT_BUTTONS_RIGHT)
+				.before(() => (this.button2Pushed = true))
+				.after(() => (this.button2Pushed = false));
 		});
 	}
 

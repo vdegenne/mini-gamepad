@@ -1,5 +1,5 @@
 import {type ButtonName} from './buttons.js';
-import {getMappingFromModel, UniversalMapping} from './gamepads/index.js';
+import {getMappingFromModel, UniversalMapping} from './mappings/index.js';
 
 interface State {
 	buttons: boolean[];
@@ -80,6 +80,23 @@ export class MGamepad {
 	after(button: ButtonName, call: VoidFunction) {
 		this.#registerEvent('after', button, call);
 		return this;
+	}
+
+	for(button: ButtonName) {
+		return {
+			before: (call: VoidFunction) => {
+				this.before(button, call);
+				return this.for(button);
+			},
+			on: (call: VoidFunction) => {
+				this.on(button, call);
+				return this.for(button);
+			},
+			after: (call: VoidFunction) => {
+				this.after(button, call);
+				return this.for(button);
+			},
+		};
 	}
 
 	#registerEvent(
