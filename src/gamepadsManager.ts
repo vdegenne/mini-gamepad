@@ -2,11 +2,12 @@
 import {MGamepad} from './MGamepad.js';
 import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
-import {MiniGamepadOptions} from './index.js';
+import {type MiniGamepadOptions} from './options.js';
 import {Poll} from './poll.js';
 
 export class GamepadsManager {
 	readonly gamepads: (MGamepad | null)[] = [null, null, null, null];
+	#gamepadEnableStates: boolean[] = [];
 
 	#options: MiniGamepadOptions;
 
@@ -28,6 +29,19 @@ export class GamepadsManager {
 		);
 
 		this.#poll = new Poll(this, options);
+
+		window.addEventListener('blur', () => {
+			if (options.backgroundActivity === false) {
+				this.disableAll();
+			}
+		});
+		window.addEventListener('focus', () => {
+			if (options.backgroundActivity === false) {
+				setTimeout(() => {
+					this.reenableAll();
+				}, options.focusDeadTimeMs);
+			}
+		});
 	}
 
 	#onConnectionChanged = () => {
@@ -59,6 +73,16 @@ export class GamepadsManager {
 		console.log(`${mgamepad._gamepad.id} got disconnected.`);
 		HOOKS.forEach((hook) => hook.hooks('disconnect', this.gamepads[index]));
 		this.gamepads[index] = null;
+	}
+
+	disableAll() {
+		this.#gamepadEnableStates = this.gamepads.map((g) => g?.enabled ?? false);
+		this.gamepads.forEach((g) => g && (g.enabled = false));
+	}
+	reenableAll() {
+		this.gamepads.forEach(
+			(g, i) => g && (g.enabled = this.#gamepadEnableStates[i]),
+		);
 	}
 }
 

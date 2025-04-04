@@ -1,20 +1,20 @@
 export type ButtonName =
-	| 'button0'
-	| 'button1'
-	| 'button2'
-	| 'button3'
-	| 'button4'
-	| 'button5'
-	| 'button6'
-	| 'button7'
-	| 'button8'
-	| 'button9'
-	| 'button10'
-	| 'button11'
-	| 'button12'
-	| 'button13'
-	| 'button14'
-	| 'button15'
+	| 0
+	| 1
+	| 2
+	| 3
+	| 4
+	| 5
+	| 6
+	| 7
+	| 8
+	| 9
+	| 10
+	| 11
+	| 12
+	| 13
+	| 14
+	| 15
 	| '-axis0'
 	| '+axis0'
 	| '-axis1'

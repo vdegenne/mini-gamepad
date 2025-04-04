@@ -1,20 +1,34 @@
 import {type ButtonName} from './buttons.js';
-import {MiniGamepadOptions} from './index.js';
-import {getMappingFromModel, UniversalMapping} from './mappings/index.js';
+import {type GamepadModel, getModelInformation} from './models/index.js';
+import {Mode, ModeManager} from './ModeManager.js';
+import {type MiniGamepadOptions} from './options.js';
 
-interface State {
+export interface ButtonsState {
 	buttons: boolean[];
 	axes: number[];
 }
 
-type EventMap = Map<ButtonName, (() => void)[]>;
+type EventDetails = {
+	mode: Mode;
+};
+type EventCall = (details: EventDetails) => void;
+type EventMap = Map<ButtonName, EventCall[]>;
 
 export class MGamepad {
 	readonly _gamepad: Gamepad;
-	#state!: State;
-	readonly mapping: UniversalMapping;
+	#state!: ButtonsState;
+	#stickyState!: ButtonsState;
+
+	readonly model: GamepadModel;
+	get mapping() {
+		return this.model.mapping;
+	}
+
+	#modeManager: ModeManager;
 
 	axesThreshold: number;
+
+	enabled = true;
 
 	#events: {before: EventMap; on: EventMap; after: EventMap} = {
 		before: new Map(),
@@ -25,21 +39,34 @@ export class MGamepad {
 	constructor(gamepad: Gamepad, options?: MiniGamepadOptions) {
 		this.axesThreshold = options?.axesThreshold ?? 0.5;
 		this._gamepad = gamepad;
-		this.mapping = getMappingFromModel(gamepad.id);
+		this.model = getModelInformation(gamepad.id);
 		// Initial state
-		this.#state = {
-			buttons: [...this._gamepad.buttons.map((b) => b.pressed)],
-			axes: [...this._gamepad.axes],
-		};
+		// TODO: give an option to choose between ignore initial state or not
+		// this.#state = {
+		// 	buttons: [...this._gamepad.buttons.map((b) => b.pressed)],
+		// 	axes: [...this._gamepad.axes],
+		// };
+		this.resetButtons();
+
+		this.#modeManager = new ModeManager(this.model);
 	}
 
 	getState() {
 		return this.#state;
 	}
 
-	async _detectChanges() {
-		const prevState = {...this.#state};
+	resetButtons() {
+		this.#state = {
+			buttons: Array.from({length: this._gamepad.buttons.length}, () => false),
+			axes: Array.from({length: this._gamepad.axes.length}, () => 0),
+		};
+		this.#stickyState = {
+			buttons: Array.from({length: this._gamepad.buttons.length}, () => false),
+			axes: Array.from({length: this._gamepad.axes.length}, () => 0),
+		};
+	}
 
+	#updateState() {
 		const updatedGamepad = navigator.getGamepads()[this._gamepad.index];
 		if (!updatedGamepad) {
 			throw new Error('Trying to detect changes from a ghost gamepad.');
@@ -48,23 +75,48 @@ export class MGamepad {
 			buttons: [...updatedGamepad.buttons.map((b) => b.pressed)],
 			axes: [...updatedGamepad.axes],
 		};
+		return this.#state;
+	}
 
-		this.#state.buttons.forEach((pressed, i) => {
-			const buttonName = `button${i}` as ButtonName;
+	async _detectChanges() {
+		const prevState = {...this.#state};
+		const newState = this.#updateState();
+		const mode = this.#modeManager.update(newState);
 
-			if (pressed && !prevState.buttons[i]) {
-				this.#events.before.get(buttonName)?.forEach((callback) => callback());
+		if (this.enabled === false) {
+			return;
+		}
+
+		const details: EventDetails = {
+			mode,
+		};
+
+		newState.buttons.forEach((pressed, i) => {
+			const buttonName = i as ButtonName;
+
+			if (
+				pressed &&
+				!prevState.buttons[i] &&
+				this.#stickyState.buttons[i] === false
+			) {
+				this.#stickyState.buttons[i] = true;
+				this.#events.before.get(buttonName)?.forEach((cb) => cb(details));
 			}
-			if (pressed) {
-				this.#events.on.get(buttonName)?.forEach((callback) => callback());
+			if (pressed && this.#stickyState.buttons[i] === true) {
+				this.#events.on.get(buttonName)?.forEach((cb) => cb(details));
 			}
-			if (!pressed && prevState.buttons[i]) {
-				this.#events.after.get(buttonName)?.forEach((callback) => callback());
+			if (
+				!pressed &&
+				prevState.buttons[i] &&
+				this.#stickyState.buttons[i] === true
+			) {
+				this.#events.after.get(buttonName)?.forEach((cb) => cb(details));
+				this.#stickyState.buttons[i] = false;
 			}
 		});
 
-		for (let i = 0; i < this.#state.axes.length; ++i) {
-			const level = this.#state.axes[i];
+		for (let i = 0; i < newState.axes.length; ++i) {
+			const level = newState.axes[i];
 			const prevValue = prevState.axes[i];
 			const threshold = this.axesThreshold;
 
@@ -77,19 +129,19 @@ export class MGamepad {
 			const negButton = `-axis${i}` as ButtonName;
 
 			if (!wasPositivePressed && isPositivePressed) {
-				this.#events.before.get(posButton)?.forEach((cb) => cb());
+				this.#events.before.get(posButton)?.forEach((cb) => cb(details));
 			} else if (isPositivePressed) {
-				this.#events.on.get(posButton)?.forEach((cb) => cb());
+				this.#events.on.get(posButton)?.forEach((cb) => cb(details));
 			} else if (wasPositivePressed && !isPositivePressed) {
-				this.#events.after.get(posButton)?.forEach((cb) => cb());
+				this.#events.after.get(posButton)?.forEach((cb) => cb(details));
 			}
 
 			if (!wasNegativePressed && isNegativePressed) {
-				this.#events.before.get(negButton)?.forEach((cb) => cb());
+				this.#events.before.get(negButton)?.forEach((cb) => cb(details));
 			} else if (isNegativePressed) {
-				this.#events.on.get(negButton)?.forEach((cb) => cb());
+				this.#events.on.get(negButton)?.forEach((cb) => cb(details));
 			} else if (wasNegativePressed && !isNegativePressed) {
-				this.#events.after.get(negButton)?.forEach((cb) => cb());
+				this.#events.after.get(negButton)?.forEach((cb) => cb(details));
 			}
 		}
 	}
@@ -98,12 +150,12 @@ export class MGamepad {
 	 * Registers an event that will execute when the button gets pressed
 	 * before the 'on' event
 	 */
-	before(button: ButtonName, call: VoidFunction) {
+	before(button: ButtonName, call: EventCall) {
 		this.#registerEvent('before', button, call);
 		return this;
 	}
 
-	on(button: ButtonName, call: VoidFunction) {
+	on(button: ButtonName, call: EventCall) {
 		this.#registerEvent('on', button, call);
 		return this;
 	}
@@ -111,22 +163,22 @@ export class MGamepad {
 	/**
 	 * Executes when the button is released
 	 */
-	after(button: ButtonName, call: VoidFunction) {
+	after(button: ButtonName, call: EventCall) {
 		this.#registerEvent('after', button, call);
 		return this;
 	}
 
 	for(button: ButtonName) {
 		return {
-			before: (call: VoidFunction) => {
+			before: (call: EventCall) => {
 				this.before(button, call);
 				return this.for(button);
 			},
-			on: (call: VoidFunction) => {
+			on: (call: EventCall) => {
 				this.on(button, call);
 				return this.for(button);
 			},
-			after: (call: VoidFunction) => {
+			after: (call: EventCall) => {
 				this.after(button, call);
 				return this.for(button);
 			},
@@ -136,11 +188,20 @@ export class MGamepad {
 	#registerEvent(
 		type: 'before' | 'on' | 'after',
 		button: ButtonName,
-		call: VoidFunction,
+		call: EventCall,
 	) {
 		if (!this.#events[type].has(button)) {
 			this.#events[type].set(button, []);
 		}
 		this.#events[type].get(button)!.push(call);
+	}
+
+	getInfo() {
+		return {
+			enabled: this.enabled,
+			state: this.#state,
+			modes: this.#modeManager,
+			model: this.model,
+		};
 	}
 }

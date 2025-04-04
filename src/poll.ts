@@ -1,6 +1,6 @@
 import {GamepadsManager} from './gamepadsManager.js';
 import {type HookName, HOOKS} from './hooks.js';
-import {MiniGamepadOptions} from './index.js';
+import {type MiniGamepadOptions} from './options.js';
 import {sleep} from './utils.js';
 
 const timer = new (class {
@@ -16,7 +16,9 @@ const timer = new (class {
 	}
 	tick() {
 		if (++this.#i >= this.#every) {
-			console.log((Date.now() - this.#startTime) / 1000 + 's');
+			if (import.meta.env.DEV) {
+				console.log((Date.now() - this.#startTime) / 1000 + 's');
+			}
 			this.reset();
 		}
 	}
@@ -36,18 +38,16 @@ export class Poll {
 		for (let index = 0; index < this.gamepadsManager.gamepads.length; ++index) {
 			timer.tick();
 			const gamepad = this.gamepadsManager.gamepads[index];
+			if (gamepad) {
+				await gamepad._detectChanges();
+			}
 			if (import.meta.env.DEV) {
 				HOOKS.forEach((hook) =>
 					hook.hooks(
 						`gamepad${index}info` as HookName,
-						gamepad
-							? JSON.stringify({state: gamepad?.getState()}, null, 2)
-							: undefined,
+						gamepad ? JSON.stringify(gamepad.getInfo(), null, 2) : undefined,
 					),
 				);
-			}
-			if (gamepad) {
-				await gamepad._detectChanges();
 			}
 		}
 
