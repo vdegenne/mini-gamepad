@@ -1,15 +1,16 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
-		"module": "NodeNext",
-		"moduleResolution": "nodenext",
+		"module": "ESNext",
+		"moduleResolution": "node",
 		"strict": true,
 		"useDefineForClassFields": false,
 		"experimentalDecorators": true,
 		"outDir": "./lib",
 		"declaration": true,
 		"declarationMap": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"types": ["vite/client"]
 	},
 	"include": ["./src/**/*.ts"],
 	"exclude": []

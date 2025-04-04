@@ -1,5 +1,6 @@
 import {ButtonName} from '../buttons.js';
 import PowerAXBox from './powera-xbox-series-x-wired-controller-opp-black.js';
+import XBoxWireless from './xbox-wireless-controller.js';
 
 export interface UniversalMapping {
 	L1: ButtonName;
@@ -8,32 +9,32 @@ export interface UniversalMapping {
 	R2: ButtonName;
 
 	LEFT_STICK_UP: ButtonName;
-	LEFT_STICK_RIGHT: ButtonName;
 	LEFT_STICK_DOWN: ButtonName;
 	LEFT_STICK_LEFT: ButtonName;
+	LEFT_STICK_RIGHT: ButtonName;
 	LEFT_STICK_PRESS: ButtonName;
 
-	LEFT_BUTTONS_UP: ButtonName;
-	LEFT_BUTTONS_RIGHT: ButtonName;
-	LEFT_BUTTONS_DOWN: ButtonName;
+	LEFT_BUTTONS_TOP: ButtonName;
+	LEFT_BUTTONS_BOTTOM: ButtonName;
 	LEFT_BUTTONS_LEFT: ButtonName;
+	LEFT_BUTTONS_RIGHT: ButtonName;
 
 	RIGHT_BUTTONS_TOP: ButtonName;
-	RIGHT_BUTTONS_RIGHT: ButtonName;
 	RIGHT_BUTTONS_BOTTOM: ButtonName;
 	RIGHT_BUTTONS_LEFT: ButtonName;
+	RIGHT_BUTTONS_RIGHT: ButtonName;
 
 	RIGHT_STICK_UP: ButtonName;
-	RIGHT_STICK_RIGHT: ButtonName;
 	RIGHT_STICK_DOWN: ButtonName;
 	RIGHT_STICK_LEFT: ButtonName;
+	RIGHT_STICK_RIGHT: ButtonName;
 	RIGHT_STICK_PRESS: ButtonName;
 
 	MIDDLE_LEFT: ButtonName;
 	MIDDLE_RIGHT: ButtonName;
 
-	MIDDLE_TOP: ButtonName;
-	MIDDLE_BOTTOM: ButtonName;
+	MIDDLE_TOP?: ButtonName;
+	MIDDLE_BOTTOM?: ButtonName;
 }
 
 interface XBoxMapping {
@@ -82,6 +83,7 @@ export interface GamepadModel {
 
 const mappings = {
 	[PowerAXBox.name]: PowerAXBox.mapping,
+	[XBoxWireless.name]: XBoxWireless.mapping,
 };
 
 export function getMappingFromModel(modelName: string) {

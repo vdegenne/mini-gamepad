@@ -15,9 +15,9 @@ const model: GamepadModel = {
 		LEFT_STICK_LEFT: '-axis0',
 		LEFT_STICK_PRESS: 'button9',
 
-		LEFT_BUTTONS_UP: '-axis7',
+		LEFT_BUTTONS_TOP: '-axis7',
 		LEFT_BUTTONS_RIGHT: '+axis6',
-		LEFT_BUTTONS_DOWN: '+axis7',
+		LEFT_BUTTONS_BOTTOM: '+axis7',
 		LEFT_BUTTONS_LEFT: '-axis6',
 
 		RIGHT_BUTTONS_TOP: 'button3',

@@ -10,10 +10,10 @@ import {MiniGamepad} from '../src/index.js';
 @customElement('app-shell')
 @withController(liveInfo)
 export class AppShell extends LitElement {
-	@state() button1Pushed = false;
-	@state() button2Pushed = false;
-	@state() button3Pushed = false;
-	@state() button4Pushed = false;
+	@state() leftButtonsTop = false;
+	@state() leftButtonsBottom = false;
+	@state() leftButtonsLeft = false;
+	@state() leftButtonsRight = false;
 
 	setFeedback(input: any) {
 		this.renderRoot.querySelector<HTMLInputElement>('#feedback')!.value =
@@ -26,18 +26,16 @@ export class AppShell extends LitElement {
 		const minigp = new MiniGamepad({pollSleepMs: 0, axesThreshold: 0.5});
 		minigp.onConnect((gamepad) => {
 			const {
-				RIGHT_BUTTONS_TOP,
-				RIGHT_BUTTONS_RIGHT,
-				RIGHT_BUTTONS_BOTTOM,
-				RIGHT_BUTTONS_LEFT,
-				LEFT_BUTTONS_UP,
-				LEFT_BUTTONS_DOWN,
+				LEFT_BUTTONS_TOP,
+				LEFT_BUTTONS_RIGHT,
+				LEFT_BUTTONS_BOTTOM,
+				LEFT_BUTTONS_LEFT,
 				LEFT_STICK_UP,
 				LEFT_STICK_DOWN,
 			} = gamepad.mapping;
 
 			gamepad
-				.for(LEFT_BUTTONS_UP)
+				.for(LEFT_BUTTONS_TOP)
 				.on(() => {
 					console.log('up before');
 				})
@@ -45,7 +43,7 @@ export class AppShell extends LitElement {
 					console.log('up after');
 				});
 			gamepad
-				.for(LEFT_BUTTONS_DOWN)
+				.for(LEFT_BUTTONS_BOTTOM)
 				.before(() => {
 					console.log('down before');
 				})
@@ -54,23 +52,23 @@ export class AppShell extends LitElement {
 				});
 
 			gamepad
-				.for(RIGHT_BUTTONS_TOP)
-				.before(() => (this.button4Pushed = true))
-				.after(() => (this.button4Pushed = false));
+				.for(LEFT_BUTTONS_TOP)
+				.before(() => (this.leftButtonsTop = true))
+				.after(() => (this.leftButtonsTop = false));
 			gamepad
-				.for(RIGHT_BUTTONS_BOTTOM)
-				.before(() => (this.button1Pushed = true))
-				.after(() => (this.button1Pushed = false));
+				.for(LEFT_BUTTONS_BOTTOM)
+				.before(() => (this.leftButtonsBottom = true))
+				.after(() => (this.leftButtonsBottom = false));
 
 			gamepad
-				.for(RIGHT_BUTTONS_LEFT)
-				.before(() => (this.button3Pushed = true))
-				.after(() => (this.button3Pushed = false));
+				.for(LEFT_BUTTONS_LEFT)
+				.before(() => (this.leftButtonsLeft = true))
+				.after(() => (this.leftButtonsLeft = false));
 
 			gamepad
-				.for(RIGHT_BUTTONS_RIGHT)
-				.before(() => (this.button2Pushed = true))
-				.after(() => (this.button2Pushed = false));
+				.for(LEFT_BUTTONS_RIGHT)
+				.before(() => (this.leftButtonsRight = true))
+				.after(() => (this.leftButtonsRight = false));
 		});
 	}
 
@@ -84,10 +82,10 @@ export class AppShell extends LitElement {
 				<div>
 					gamepad1
 					<pre>${liveInfo.gamepad0info || 'not connected'}</pre>
-					<div>button 1 pressed : ${this.button1Pushed}</div>
-					<div>button 2 pressed : ${this.button2Pushed}</div>
-					<div>button 3 pressed : ${this.button3Pushed}</div>
-					<div>button 4 pressed : ${this.button4Pushed}</div>
+					<div>left buttons up pressed : ${this.leftButtonsTop}</div>
+					<div>left buttons down pressed : ${this.leftButtonsBottom}</div>
+					<div>left buttons left pressed : ${this.leftButtonsLeft}</div>
+					<div>left buttons rigth pressed : ${this.leftButtonsRight}</div>
 				</div>
 				<div>
 					gamepad2

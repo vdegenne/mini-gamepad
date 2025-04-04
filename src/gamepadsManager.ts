@@ -1,5 +1,6 @@
-import {Debouncer} from '@vdegenne/debouncer';
+// import {Debouncer} from '@vdegenne/debouncer';
 import {MGamepad} from './MGamepad.js';
+import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
 import {MiniGamepadOptions} from './index.js';
 import {Poll} from './poll.js';

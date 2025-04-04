@@ -20,7 +20,3 @@ class LiveInfo extends ReactiveController implements Hookable {
 }
 
 export const liveInfo = new LiveInfo();
-
-export function sleep(timeoutMs: number) {
-	return new Promise((r) => setTimeout(r, timeoutMs));
-}

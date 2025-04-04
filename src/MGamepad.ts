@@ -1,5 +1,4 @@
 import {type ButtonName} from './buttons.js';
-import {sleep} from './debug.js';
 import {MiniGamepadOptions} from './index.js';
 import {getMappingFromModel, UniversalMapping} from './mappings/index.js';
 

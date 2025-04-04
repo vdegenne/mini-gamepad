@@ -1,7 +1,7 @@
-import {sleep} from './debug.js';
 import {GamepadsManager} from './gamepadsManager.js';
 import {type HookName, HOOKS} from './hooks.js';
 import {MiniGamepadOptions} from './index.js';
+import {sleep} from './utils.js';
 
 const timer = new (class {
 	#every = 1000;
@@ -36,7 +36,7 @@ export class Poll {
 		for (let index = 0; index < this.gamepadsManager.gamepads.length; ++index) {
 			timer.tick();
 			const gamepad = this.gamepadsManager.gamepads[index];
-			if (process.env.NODE_ENV === 'development') {
+			if (import.meta.env.DEV) {
 				HOOKS.forEach((hook) =>
 					hook.hooks(
 						`gamepad${index}info` as HookName,
