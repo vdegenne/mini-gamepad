@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/mini-gamepad",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"type": "module",
 	"devDependencies": {
 		"@snar/lit": "^1.6.0",
@@ -31,6 +31,9 @@
 			]
 		}
 	},
+	"files": [
+		"./lib"
+	],
 	"exports": {
 		".": {
 			"default": "./lib/index.js",
