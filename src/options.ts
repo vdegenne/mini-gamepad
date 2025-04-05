@@ -1,5 +1,9 @@
 export interface MiniGamepadOptions {
+	/**
+	 * @default 0.4
+	 */
 	axesThreshold: number;
+
 	/** @default 16 */
 	pollSleepMs: number;
 

@@ -39,7 +39,7 @@ export class Poll {
 			timer.tick();
 			const gamepad = this.gamepadsManager.gamepads[index];
 			if (gamepad) {
-				await gamepad._detectChanges();
+				gamepad._detectChanges();
 			}
 			if (import.meta.env.DEV) {
 				HOOKS.forEach((hook) =>
@@ -52,7 +52,8 @@ export class Poll {
 		}
 
 		await sleep(this.options.pollSleepMs);
-		requestAnimationFrame(this.#poll.bind(this));
+		// requestAnimationFrame(this.#poll.bind(this));
+		this.#poll();
 	}
 
 	startPoll() {

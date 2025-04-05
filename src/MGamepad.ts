@@ -10,9 +10,24 @@ export interface ButtonsState {
 
 type EventDetails = {
 	mode: Mode;
+	/**
+	 * For axes
+	 */
+	value: number;
 };
 type EventCall = (details: EventDetails) => void;
 type EventMap = Map<ButtonName, EventCall[]>;
+
+type ForReturnType = {
+	before: ForChain;
+	on: ForChain;
+	after: ForChain;
+};
+type ForChain = (call: EventCall) => ForReturnType;
+// 	before: (call: EventCall) => ForReturnType;
+// 	on: (call: EventCall) => ForReturnType;
+// 	after: (call: EventCall) => ForReturnType;
+// };
 
 export class MGamepad {
 	readonly _gamepad: Gamepad;
@@ -78,7 +93,7 @@ export class MGamepad {
 		return this.#state;
 	}
 
-	async _detectChanges() {
+	_detectChanges() {
 		const prevState = {...this.#state};
 		const newState = this.#updateState();
 		const mode = this.#modeManager.update(newState);
@@ -89,6 +104,7 @@ export class MGamepad {
 
 		const details: EventDetails = {
 			mode,
+			value: NaN,
 		};
 
 		newState.buttons.forEach((pressed, i) => {
@@ -127,6 +143,8 @@ export class MGamepad {
 
 			const posButton = `+axis${i}` as ButtonName;
 			const negButton = `-axis${i}` as ButtonName;
+
+			details.value = level;
 
 			if (!wasPositivePressed && isPositivePressed) {
 				this.#events.before.get(posButton)?.forEach((cb) => cb(details));
@@ -168,19 +186,19 @@ export class MGamepad {
 		return this;
 	}
 
-	for(button: ButtonName) {
+	for(...buttons: ButtonName[]): ForReturnType {
 		return {
 			before: (call: EventCall) => {
-				this.before(button, call);
-				return this.for(button);
+				buttons.forEach((button) => this.before(button, call));
+				return this.for(...buttons);
 			},
 			on: (call: EventCall) => {
-				this.on(button, call);
-				return this.for(button);
+				buttons.forEach((button) => this.on(button, call));
+				return this.for(...buttons);
 			},
 			after: (call: EventCall) => {
-				this.after(button, call);
-				return this.for(button);
+				buttons.forEach((button) => this.after(button, call));
+				return this.for(...buttons);
 			},
 		};
 	}
