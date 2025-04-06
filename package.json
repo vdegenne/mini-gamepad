@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/mini-gamepad",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"type": "module",
 	"devDependencies": {
 		"@snar/lit": "^1.6.0",

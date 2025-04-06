@@ -84,8 +84,12 @@ export class MGamepad {
 	#updateState() {
 		const updatedGamepad = navigator.getGamepads()[this._gamepad.index];
 		if (!updatedGamepad) {
-			throw new Error('Trying to detect changes from a ghost gamepad.');
+			console.warn('Trying to detect changes from a ghost gamepad.');
+			return this.#state;
 		}
+		// if (!updatedGamepad) {
+		// 	throw new Error('Trying to detect changes from a ghost gamepad.');
+		// }
 		this.#state = {
 			buttons: [...updatedGamepad.buttons.map((b) => b.pressed)],
 			axes: [...updatedGamepad.axes],
