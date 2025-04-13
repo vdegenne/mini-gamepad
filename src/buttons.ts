@@ -15,6 +15,7 @@ export type ButtonName =
 	| 13
 	| 14
 	| 15
+	| 16
 	| '-axis0'
 	| '+axis0'
 	| '-axis1'

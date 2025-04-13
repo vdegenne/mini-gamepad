@@ -1,6 +1,6 @@
 import {ButtonName} from '../buttons.js';
 import PowerAXBox from './powera-xbox-series-x-wired-controller-opp-black.js';
-import XBoxWireless from './xbox-wireless-controller.js';
+import XBoxControllerStandard from './xbox-controller-standard.js';
 
 /**
  * @deprecated
@@ -86,26 +86,31 @@ export type Modes = {
 };
 
 export interface GamepadModel {
-	name: string;
+	name: string | string[];
 	mapping: UniversalMapping;
 	modes?: Modes;
 }
 
-const models = {
-	[PowerAXBox.name]: PowerAXBox,
-	[XBoxWireless.name]: XBoxWireless,
-};
+const models: {name: string | string[]; info: GamepadModel}[] = [
+	{
+		name: PowerAXBox.name,
+		info: PowerAXBox,
+	},
+	{name: XBoxControllerStandard.name, info: XBoxControllerStandard},
+];
 
 export function getModelInformation(name: string) {
-	const model = models[name];
+	const model = models.find((model) => {
+		return ([] as string[]).concat(model.name ?? []).includes(name);
+	});
 	if (!model) {
 		throw new Error(
 			`Model "${name}" not available yet. Please report at https://github.com/vdegenne/mini-gamepad/issues.`,
 		);
 	}
-	return model;
+	return model.info;
 }
 export function getMappingFromModel(modelName: string) {
-	const model = getModelInformation(modelName);
-	return model.mapping;
+	const modelInfo = getModelInformation(modelName);
+	return modelInfo.mapping;
 }

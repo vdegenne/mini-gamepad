@@ -1,7 +1,10 @@
 import {type GamepadModel} from './index.js';
 
 const model: GamepadModel = {
-	name: 'Xbox Wireless Controller (STANDARD GAMEPAD Vendor: 045e Product: 028e)',
+	name: [
+		'Xbox Wireless Controller (STANDARD GAMEPAD Vendor: 045e Product: 028e)',
+		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 0b12)',
+	],
 
 	mapping: {
 		L1: 4,
@@ -34,7 +37,7 @@ const model: GamepadModel = {
 		MIDDLE_LEFT: 8,
 		MIDDLE_RIGHT: 9,
 
-		// MIDDLE_TOP: '?',
+		MIDDLE_TOP: 16,
 
 		// SHARE BUTTON DOESNT WORK?
 		// MIDDLE_BOTTOM: '?'
