@@ -4,6 +4,8 @@ import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
 import {type MiniGamepadOptions} from './options.js';
 import {Poll} from './poll.js';
+// @ts-ignore
+import toast from 'toastit';
 
 export class GamepadsManager {
 	readonly gamepads: (MGamepad | null)[] = [null, null, null, null];
@@ -60,6 +62,10 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		console.log(`${gamepad.id} just got connected.`);
+		toast(`${gamepad.id} just got connected.`, {
+			leading: true,
+			timeoutMs: 1000,
+		});
 		this.gamepads[index] = new MGamepad(gamepad, this.#options);
 		HOOKS.forEach((hook) => hook.hooks('connect', this.gamepads[index]));
 		this.#poll.startPoll();
@@ -71,6 +77,10 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		console.log(`${mgamepad._gamepad.id} got disconnected.`);
+		toast(`${mgamepad._gamepad.id} got disconnected.`, {
+			leading: true,
+			timeoutMs: 1000,
+		});
 		HOOKS.forEach((hook) => hook.hooks('disconnect', this.gamepads[index]));
 		this.gamepads[index] = null;
 	}
