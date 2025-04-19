@@ -1,5 +1,5 @@
-import {ButtonsState} from './MGamepad';
-import {GamepadModel, Modes, type UniversalMapping} from './models';
+import {ButtonsState} from './MGamepad.js';
+import {GamepadModel, Modes, type UniversalMapping} from './models/index.js';
 
 export enum Mode {
 	NORMAL = 0,

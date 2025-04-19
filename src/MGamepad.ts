@@ -2,6 +2,7 @@ import {type ButtonName} from './buttons.js';
 import {type GamepadModel, getModelInformation} from './models/index.js';
 import {Mode, ModeManager} from './ModeManager.js';
 import {type MiniGamepadOptions} from './options.js';
+import {cquerySelector, getElement} from 'html-vision';
 
 export interface ButtonsState {
 	buttons: boolean[];
@@ -121,6 +122,20 @@ export class MGamepad {
 			) {
 				this.#stickyState.buttons[i] = true;
 				this.#events.before.get(buttonName)?.forEach((cb) => cb(details));
+				switch (details.mode) {
+					case Mode.NORMAL:
+						cquerySelector(`[mgp:${buttonName}]`)?.click();
+						break;
+					case Mode.PRIMARY:
+						cquerySelector(`[mgp-primary:${buttonName}]`)?.click();
+						break;
+					case Mode.SECONDARY:
+						cquerySelector(`[mgp-secondary:${buttonName}]`)?.click();
+						break;
+					case Mode.TERTIARY:
+						cquerySelector(`[mgp-tertiary:${buttonName}]`)?.click();
+						break;
+				}
 			}
 			if (pressed && this.#stickyState.buttons[i] === true) {
 				this.#events.on.get(buttonName)?.forEach((cb) => cb(details));
