@@ -50,3 +50,5 @@ export class MiniGamepad {
 
 	#hooks(hookName: HookName, info: any) {}
 }
+
+export {type MGamepad};
