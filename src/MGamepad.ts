@@ -124,16 +124,16 @@ export class MGamepad {
 				this.#events.before.get(buttonName)?.forEach((cb) => cb(details));
 				switch (details.mode) {
 					case Mode.NORMAL:
-						cquerySelector(`[mgp:${buttonName}]`)?.click();
+						cquerySelector(`[mgp="${buttonName}"]`)?.click();
 						break;
 					case Mode.PRIMARY:
-						cquerySelector(`[mgp-primary:${buttonName}]`)?.click();
+						cquerySelector(`[mgp-primary="${buttonName}"]`)?.click();
 						break;
 					case Mode.SECONDARY:
-						cquerySelector(`[mgp-secondary:${buttonName}]`)?.click();
+						cquerySelector(`[mgp-secondary="${buttonName}"]`)?.click();
 						break;
 					case Mode.TERTIARY:
-						cquerySelector(`[mgp-tertiary:${buttonName}]`)?.click();
+						cquerySelector(`[mgp-tertiary="${buttonName}"]`)?.click();
 						break;
 				}
 			}
