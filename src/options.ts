@@ -30,6 +30,13 @@ export interface MiniGamepadOptions {
 	 * TODO: to implement
 	 */
 	sticky: boolean;
+
+	/**
+	 * Show gamepad model name in a snackbar on connect events.
+	 *
+	 * @default true
+	 */
+	toastModel: boolean;
 }
 
 export const DEFAULT_OPTIONS: MiniGamepadOptions = {
@@ -38,4 +45,5 @@ export const DEFAULT_OPTIONS: MiniGamepadOptions = {
 	backgroundActivity: false,
 	focusDeadTimeMs: 100,
 	sticky: true,
+	toastModel: true,
 };
