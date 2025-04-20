@@ -1,7 +1,7 @@
 import {GamepadsManager} from './gamepadsManager.js';
 import {type HookName, HOOKS} from './hooks.js';
 import {type MiniGamepadOptions} from './options.js';
-import {sleep} from './utils.js';
+import {isDev, sleep} from './utils.js';
 
 const timer = new (class {
 	#every = 1000;
@@ -16,7 +16,7 @@ const timer = new (class {
 	}
 	tick() {
 		if (++this.#i >= this.#every) {
-			if (import.meta.env.DEV) {
+			if (isDev()) {
 				console.log((Date.now() - this.#startTime) / 1000 + 's');
 			}
 			this.reset();
@@ -41,7 +41,7 @@ export class Poll {
 			if (gamepad) {
 				gamepad._detectChanges();
 			}
-			if (import.meta.env.DEV) {
+			if (isDev()) {
 				HOOKS.forEach((hook) =>
 					hook.hooks(
 						`gamepad${index}info` as HookName,
