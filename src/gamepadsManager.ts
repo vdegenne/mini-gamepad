@@ -95,7 +95,6 @@ export class GamepadsManager {
 
 	disableAll() {
 		this.#gamepadEnableStates = this.gamepads.map((g) => g?.enabled ?? false);
-		console.log(this.#gamepadEnableStates);
 		this.gamepads.forEach((g) => g && (g.enabled = false));
 	}
 	reenableAll() {
