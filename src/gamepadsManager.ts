@@ -1,4 +1,5 @@
 // import {Debouncer} from '@vdegenne/debouncer';
+import toast from 'toastit';
 import {MGamepad} from './MGamepad.js';
 import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
@@ -38,6 +39,7 @@ export class GamepadsManager {
 		window.addEventListener('focus', () => {
 			if (options.backgroundActivity === false) {
 				setTimeout(() => {
+					this.gamepads.forEach((gamepad) => gamepad && gamepad.resetButtons()); // For sticky buttons
 					this.reenableAll();
 				}, options.focusDeadTimeMs);
 			}
@@ -93,6 +95,7 @@ export class GamepadsManager {
 
 	disableAll() {
 		this.#gamepadEnableStates = this.gamepads.map((g) => g?.enabled ?? false);
+		console.log(this.#gamepadEnableStates);
 		this.gamepads.forEach((g) => g && (g.enabled = false));
 	}
 	reenableAll() {

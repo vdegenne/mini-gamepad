@@ -38,7 +38,7 @@ export class Poll {
 		for (let index = 0; index < this.gamepadsManager.gamepads.length; ++index) {
 			timer.tick();
 			const gamepad = this.gamepadsManager.gamepads[index];
-			if (gamepad) {
+			if (gamepad && (document.hasFocus() || this.options.backgroundActivity)) {
 				gamepad._detectChanges();
 			}
 			if (isDev()) {

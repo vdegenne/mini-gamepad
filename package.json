@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/mini-gamepad",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"type": "module",
 	"devDependencies": {
 		"@material/mwc-snackbar": "^0.27.0",
@@ -42,6 +42,10 @@
 		".": {
 			"default": "./lib/index.js",
 			"types": "./lib/index.d.ts"
+		},
+		"./debug": {
+			"default": "./lib/debug.js",
+			"types": "./lib/debug.d.ts"
 		}
 	}
 }
