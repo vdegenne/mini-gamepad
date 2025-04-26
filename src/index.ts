@@ -38,7 +38,7 @@ export class MiniGamepad {
 			...DEFAULT_OPTIONS,
 			...(options ?? {}),
 		};
-		new GamepadsManager(this.#options);
+		window.MINIGAMEPAD = new GamepadsManager(this.#options);
 	}
 
 	onConnect(callback: (gamepad: MGamepad) => void) {
@@ -52,3 +52,9 @@ export class MiniGamepad {
 }
 
 export {type MGamepad};
+
+declare global {
+	interface Window {
+		MINIGAMEPAD: GamepadsManager;
+	}
+}
