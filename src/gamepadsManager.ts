@@ -8,28 +8,32 @@ import {Poll} from './poll.js';
 
 export class GamepadsManager {
 	readonly gamepads: (MGamepad | null)[] = [null, null, null, null];
-	#gamepadEnableStates: boolean[] = [];
+	// TODO: private
+	// gamepadEnableStates: boolean[] = [];
 
-	#options: MiniGamepadOptions;
+	// TODO: private
+	options: MiniGamepadOptions;
 
-	#connectionChangedDebouncer: Debouncer;
-	#poll: Poll;
+	// TODO: private
+	connectionChangedDebouncer: Debouncer;
+	// TODO: private
+	poll: Poll;
 
 	constructor(options: MiniGamepadOptions) {
-		this.#options = options;
-		this.#connectionChangedDebouncer = new Debouncer(
+		this.options = options;
+		this.connectionChangedDebouncer = new Debouncer(
 			this.#onConnectionChanged,
 			10,
 		);
 
 		window.addEventListener('gamepadconnected', () =>
-			this.#connectionChangedDebouncer.call(),
+			this.connectionChangedDebouncer.call(),
 		);
 		window.addEventListener('gamepaddisconnected', () =>
-			this.#connectionChangedDebouncer.call(),
+			this.connectionChangedDebouncer.call(),
 		);
 
-		this.#poll = new Poll(this, options);
+		this.poll = new Poll(this, options);
 
 		window.addEventListener('blur', () => {
 			if (options.backgroundActivity === false) {
@@ -62,7 +66,7 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		console.log(`${gamepad.id} just got connected.`);
-		if (this.#options.toastModel) {
+		if (this.options.toastModel) {
 			import('toastit').then(({default: toast}) => {
 				toast(`${gamepad.id} just got connected.`, {
 					leading: true,
@@ -70,9 +74,9 @@ export class GamepadsManager {
 				});
 			});
 		}
-		this.gamepads[index] = new MGamepad(gamepad, this.#options);
+		this.gamepads[index] = new MGamepad(gamepad, this.options);
 		HOOKS.forEach((hook) => hook.hooks('connect', this.gamepads[index]));
-		this.#poll.startPoll();
+		this.poll.startPoll();
 	}
 
 	#onDisconnect(index: number) {
@@ -81,7 +85,7 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		console.log(`${mgamepad._gamepad.id} got disconnected.`);
-		if (this.#options.toastModel) {
+		if (this.options.toastModel) {
 			import('toastit').then(({default: toast}) => {
 				toast(`${mgamepad._gamepad.id} got disconnected.`, {
 					leading: true,
@@ -94,13 +98,14 @@ export class GamepadsManager {
 	}
 
 	disableAll() {
-		this.#gamepadEnableStates = this.gamepads.map((g) => g?.enabled ?? false);
+		// this.gamepadEnableStates = this.gamepads.map((g) => g?.enabled ?? false);
 		this.gamepads.forEach((g) => g && (g.enabled = false));
 	}
 	reenableAll() {
-		this.gamepads.forEach(
-			(g, i) => g && (g.enabled = this.#gamepadEnableStates[i]),
-		);
+		// this.gamepads.forEach(
+		// 	(g, i) => g && (g.enabled = this.gamepadEnableStates[i]),
+		// );
+		this.gamepads.forEach((g) => g && (g.enabled = true));
 	}
 }
 
