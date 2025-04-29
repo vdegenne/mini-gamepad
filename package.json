@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/mini-gamepad",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"type": "module",
 	"devDependencies": {
 		"@material/mwc-snackbar": "^0.27.0",
