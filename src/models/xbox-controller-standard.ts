@@ -4,6 +4,7 @@ const model: GamepadModel = {
 	name: [
 		'Xbox Wireless Controller (STANDARD GAMEPAD Vendor: 045e Product: 028e)',
 		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 0b12)',
+		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 02ea)',
 	],
 
 	mapping: {
