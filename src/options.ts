@@ -36,7 +36,7 @@ export interface MiniGamepadOptions {
 	 *
 	 * @default true
 	 */
-	toastModel: boolean;
+	// toastModel: boolean;
 }
 
 export const DEFAULT_OPTIONS: MiniGamepadOptions = {
@@ -45,5 +45,5 @@ export const DEFAULT_OPTIONS: MiniGamepadOptions = {
 	backgroundActivity: false,
 	focusDeadTimeMs: 100,
 	sticky: true,
-	toastModel: true,
+	// toastModel: true,
 };
