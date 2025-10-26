@@ -1,5 +1,4 @@
 // import {Debouncer} from '@vdegenne/debouncer';
-import toast from 'toastit';
 import {MGamepad} from './MGamepad.js';
 import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';

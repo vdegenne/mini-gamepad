@@ -1,9 +1,8 @@
-import toast from 'toastit';
+import {cquerySelector} from 'html-vision';
 import {type ButtonName} from './buttons.js';
 import {type GamepadModel, getModelInformation} from './models/index.js';
 import {Mode, ModeManager} from './ModeManager.js';
 import {type MiniGamepadOptions} from './options.js';
-import {cquerySelector, getElement} from 'html-vision';
 
 export interface ButtonsState {
 	buttons: boolean[];

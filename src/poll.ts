@@ -1,7 +1,12 @@
 import {GamepadsManager} from './gamepadsManager.js';
 import {type HookName, HOOKS} from './hooks.js';
 import {type MiniGamepadOptions} from './options.js';
-import {isDev, sleep} from './utils.js';
+import {sleep} from './utils.js';
+import {Logger, isDev} from '@vdegenne/debug';
+
+console.log(isDev());
+
+const logger = new Logger();
 
 const timer = new (class {
 	#every = 1000;
@@ -16,9 +21,7 @@ const timer = new (class {
 	}
 	tick() {
 		if (++this.#i >= this.#every) {
-			if (isDev()) {
-				console.log((Date.now() - this.#startTime) / 1000 + 's');
-			}
+			logger.log((Date.now() - this.#startTime) / 1000 + 's');
 			this.reset();
 		}
 	}
