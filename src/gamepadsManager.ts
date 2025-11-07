@@ -1,4 +1,5 @@
 // import {Debouncer} from '@vdegenne/debouncer';
+import {type Logger} from '@vdegenne/debug';
 import {MGamepad} from './MGamepad.js';
 import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
@@ -10,8 +11,7 @@ export class GamepadsManager {
 	// TODO: private
 	// gamepadEnableStates: boolean[] = [];
 
-	// TODO: private
-	options: MiniGamepadOptions;
+	#options: MiniGamepadOptions;
 
 	// TODO: private
 	connectionChangedDebouncer: Debouncer;
@@ -19,7 +19,7 @@ export class GamepadsManager {
 	poll: Poll;
 
 	constructor(options: MiniGamepadOptions) {
-		this.options = options;
+		this.#options = options;
 		this.connectionChangedDebouncer = new Debouncer(
 			this.#onConnectionChanged,
 			10,
@@ -64,7 +64,11 @@ export class GamepadsManager {
 		if (gamepad.index !== index) {
 			throw new Error('Something not quite right here.');
 		}
-		console.log(`${gamepad.id} just got connected.`);
+		if (this.#options.debug) {
+			const logFn =
+				this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
+			logFn(`${gamepad.id} just got connected.`);
+		}
 		// if (this.options.toastModel) {
 		// import('toastit').then(({default: toast}) => {
 		// 	toast(`${gamepad.id} just got connected.`, {
@@ -73,7 +77,7 @@ export class GamepadsManager {
 		// 	});
 		// });
 		// }
-		this.gamepads[index] = new MGamepad(gamepad, this.options);
+		this.gamepads[index] = new MGamepad(gamepad, this.#options);
 		HOOKS.forEach((hook) => hook.hooks('connect', this.gamepads[index]));
 		this.poll.startPoll();
 	}
@@ -83,15 +87,11 @@ export class GamepadsManager {
 		if (!mgamepad || mgamepad._gamepad.index !== index) {
 			throw new Error('Something not quite right here.');
 		}
-		console.log(`${mgamepad._gamepad.id} got disconnected.`);
-		// if (this.options.toastModel) {
-		// import('toastit').then(({default: toast}) => {
-		// 	toast(`${mgamepad._gamepad.id} got disconnected.`, {
-		// 		leading: true,
-		// 		timeoutMs: 1000,
-		// 	});
-		// });
-		// }
+		if (this.#options.debug) {
+			const logFn =
+				this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
+			logFn(`${mgamepad._gamepad.id} just got disconnected.`);
+		}
 		HOOKS.forEach((hook) => hook.hooks('disconnect', this.gamepads[index]));
 		this.gamepads[index] = null;
 	}

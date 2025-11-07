@@ -1,3 +1,5 @@
+import {type Logger} from '@vdegenne/debug';
+
 export interface MiniGamepadOptions {
 	/**
 	 * @default 0.4
@@ -37,6 +39,9 @@ export interface MiniGamepadOptions {
 	 * @default true
 	 */
 	// toastModel: boolean;
+
+	logger: Logger | undefined;
+	debug: boolean;
 }
 
 export const DEFAULT_OPTIONS: MiniGamepadOptions = {
@@ -45,5 +50,7 @@ export const DEFAULT_OPTIONS: MiniGamepadOptions = {
 	backgroundActivity: false,
 	focusDeadTimeMs: 100,
 	sticky: true,
+	logger: undefined,
+	debug: false,
 	// toastModel: true,
 };
