@@ -35,11 +35,13 @@ export class GamepadsManager {
 		this.poll = new Poll(this, options);
 
 		window.addEventListener('blur', () => {
+			return;
 			if (options.backgroundActivity === false) {
 				this.disableAll();
 			}
 		});
 		window.addEventListener('focus', () => {
+			return;
 			if (options.backgroundActivity === false) {
 				setTimeout(() => {
 					this.gamepads.forEach((gamepad) => gamepad && gamepad.resetButtons()); // For sticky buttons

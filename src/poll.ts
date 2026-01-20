@@ -37,19 +37,19 @@ export class Poll {
 		if (!this.#running) return;
 
 		for (let index = 0; index < this.gamepadsManager.gamepads.length; ++index) {
-			timer.tick();
+			// timer.tick();
 			const gamepad = this.gamepadsManager.gamepads[index];
 			if (gamepad && (document.hasFocus() || this.options.backgroundActivity)) {
 				gamepad._detectChanges();
 			}
-			if (isDev()) {
-				HOOKS.forEach((hook) =>
-					hook.hooks(
-						`gamepad${index}info` as HookName,
-						gamepad ? JSON.stringify(gamepad.getInfo(), null, 2) : undefined,
-					),
-				);
-			}
+			// if (isDev()) {
+			// 	HOOKS.forEach((hook) =>
+			// 		hook.hooks(
+			// 			`gamepad${index}info` as HookName,
+			// 			gamepad ? JSON.stringify(gamepad.getInfo(), null, 2) : undefined,
+			// 		),
+			// 	);
+			// }
 		}
 
 		await sleep(this.options.pollSleepMs);

@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/mini-gamepad",
-	"version": "0.4.7",
+	"version": "0.4.8",
 	"type": "module",
 	"devDependencies": {
 		"@material/mwc-snackbar": "^0.27.0",
@@ -19,6 +19,23 @@
 		"@vdegenne/debug": "^0.1.30",
 		"html-vision": "^0.3.8"
 	},
+	"exports": {
+		".": {
+			"default": "./lib/index.js",
+			"types": "./lib/index.d.ts"
+		},
+		"./debug": {
+			"default": "./lib/debug.js",
+			"types": "./lib/debug.d.ts"
+		},
+		"./repeater.js": {
+			"import": "./lib/repeater.js",
+			"types": "./lib/repeater.d.ts"
+		}
+	},
+	"files": [
+		"./lib/"
+	],
 	"scripts": {
 		"dev": "vite --open ./test/index.html",
 		"build": "wireit"
@@ -34,19 +51,6 @@
 			"output": [
 				"./lib"
 			]
-		}
-	},
-	"files": [
-		"./lib"
-	],
-	"exports": {
-		".": {
-			"default": "./lib/index.js",
-			"types": "./lib/index.d.ts"
-		},
-		"./debug": {
-			"default": "./lib/debug.js",
-			"types": "./lib/debug.d.ts"
 		}
 	}
 }
