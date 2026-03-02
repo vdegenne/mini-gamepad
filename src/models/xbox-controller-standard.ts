@@ -6,6 +6,7 @@ const model: GamepadModel = {
 		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 0b12)',
 		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 02ea)',
 		'Microsoft Controller (STANDARD GAMEPAD Vendor: 045e Product: 0b00)',
+		'Xbox Bluetooth Gamepad (STANDARD GAMEPAD Vendor: 045e Product: 028e)',
 	],
 
 	mapping: {

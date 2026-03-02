@@ -1,0 +1,393 @@
+[  +0.000398] AMD-Vi: ivrs, add hid:AMDI0020, uid:\_SB.FUR0, rdevid:0xa0
+[  +0.000002] AMD-Vi: ivrs, add hid:AMDI0020, uid:\_SB.FUR1, rdevid:0xa0
+[  +0.000001] AMD-Vi: ivrs, add hid:AMDI0020, uid:\_SB.FUR2, rdevid:0xa0
+[  +0.000000] AMD-Vi: ivrs, add hid:AMDI0020, uid:\_SB.FUR3, rdevid:0xa0
+[  +0.000001] mitigations: Enabled attack vectors: user_kernel, user_user, guest_host, guest_guest, SMT mitigations: auto
+[  +0.000001] Transient Scheduler Attacks: Mitigation: Clear CPU buffers
+[  +0.000025] pcieport 0000:00:01.1: pciehp: Slot #0 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[  +0.000024] pcieport 0000:00:02.2: pciehp: Slot #0 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[  +0.000065] input: Lid Switch as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:37/PNP0C09:00/PNP0C0D:00/input/input0
+[  +0.000033] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input1
+[  +0.000038] input: Sleep Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input2
+[  +0.000656] ACPI: battery: Slot [BAT0] (battery present)
+[  +0.002422] xhci_hcd 0000:08:00.3: xHCI Host Controller
+[  +0.000042] xhci_hcd 0000:08:00.3: new USB bus registered, assigned bus number 1
+[  +0.000083] xhci_hcd 0000:08:00.3: hcc params 0x0268ffe5 hci version 0x110 quirks 0x0000020000000010
+[  +0.000311] xhci_hcd 0000:08:00.3: xHCI Host Controller
+[  +0.000042] xhci_hcd 0000:08:00.3: new USB bus registered, assigned bus number 2
+[  +0.000003] xhci_hcd 0000:08:00.3: Host supports USB 3.1 Enhanced SuperSpeed
+[  +0.000002] usb usb1: Product: xHCI Host Controller
+[  +0.000002] usb usb1: Manufacturer: Linux 6.18.9-200.fc43.x86_64 xhci-hcd
+[  +0.000002] usb usb2: Product: xHCI Host Controller
+[  +0.000001] usb usb2: Manufacturer: Linux 6.18.9-200.fc43.x86_64 xhci-hcd
+[  +0.000402] xhci_hcd 0000:08:00.4: xHCI Host Controller
+[  +0.000038] xhci_hcd 0000:08:00.4: new USB bus registered, assigned bus number 3
+[  +0.000076] xhci_hcd 0000:08:00.4: hcc params 0x0268ffe5 hci version 0x110 quirks 0x0000020000000010
+[  +0.000272] xhci_hcd 0000:08:00.4: xHCI Host Controller
+[  +0.000034] xhci_hcd 0000:08:00.4: new USB bus registered, assigned bus number 4
+[  +0.000004] xhci_hcd 0000:08:00.4: Host supports USB 3.1 Enhanced SuperSpeed
+[  +0.000002] usb usb3: Product: xHCI Host Controller
+[  +0.000002] usb usb3: Manufacturer: Linux 6.18.9-200.fc43.x86_64 xhci-hcd
+[  +0.000002] usb usb4: Product: xHCI Host Controller
+[  +0.000001] usb usb4: Manufacturer: Linux 6.18.9-200.fc43.x86_64 xhci-hcd
+[  +0.000049] hid: raw HID events driver (C) Jiri Kosina
+[  +0.000054] usbcore: registered new interface driver usbhid
+[  +0.000002] usbhid: USB HID core driver
+[  +0.000543] Btrfs loaded, zoned=yes, fsverity=yes
+[  +0.000040] evm: Initialising EVM extended attributes:
+[  +0.000002] evm: HMAC attrs: 0x1
+[  +0.000736] usb 3-3: new full-speed USB device number 2 using xhci_hcd
+[  +0.000018] usb 1-2: new full-speed USB device number 2 using xhci_hcd
+[  +0.000236] systemd[1]: systemd 258.4-1.fc43 running in system mode (+PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE)
+[  +0.086199] systemd[1]: bpf-restrict-fs: LSM BPF program attached
+[  +0.004939] input: HP, Inc HyperX Cloud Stinger 2 Wireless Consumer Control as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.0001/input/input3
+[  +0.016372] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.0001/input/input4
+[  +0.000068] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.0001/input/input5
+[  +0.000059] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.0001/input/input6
+[  +0.000125] hid-generic 0003:03F0:0D93.0001: input,hiddev96,hidraw0: USB HID v1.11 Device [HP, Inc HyperX Cloud Stinger 2 Wireless] on usb-0000:08:00.3-2/input3
+[  +0.032916] usb 3-4: new high-speed USB device number 3 using xhci_hcd
+[  +0.081019] usb 1-3: new full-speed USB device number 3 using xhci_hcd
+[  +0.019675] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.0/0003:0B05:19B6.0002/input/input7
+[  +0.000163] input: ASUSTeK Computer Inc. N-KEY Device Consumer Control as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.0/0003:0B05:19B6.0002/input/input8
+[  +0.051216] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.0/0003:0B05:19B6.0002/input/input9
+[  +0.000092] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.0/0003:0B05:19B6.0002/input/input10
+[  +0.000177] hid-generic 0003:0B05:19B6.0002: input,hiddev97,hidraw1: USB HID v1.10 Device [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input0
+[  +0.006987] hid-generic 0003:0B05:19B6.0003: hiddev98,hidraw2: USB HID v1.10 Device [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input1
+[  +0.008362] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.2/0003:0B05:19B6.0004/input/input11
+[  +0.019180] hid-generic 0003:0B05:19B6.0004: input,hidraw3: USB HID v1.10 Keyboard [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input2
+[  +0.018018] i2c_hid_acpi i2c-ELAN9008:00: i2c_hid_get_input: IRQ triggered but there's no data
+[  +0.000402] input: ELAN9008:00 04F3:2C82 Touchscreen as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input12
+[  +0.000115] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input13
+[  +0.000071] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input14
+[  +0.000071] input: ELAN9008:00 04F3:2C82 Stylus as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input15
+[  +0.000105] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input17
+[  +0.000093] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input18
+[  +0.000056] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input19
+[  +0.039714] hid-generic 0018:04F3:2C82.0005: input,hidraw4: I2C HID v1.00 Device [ELAN9008:00 04F3:2C82] on i2c-ELAN9008:00
+[  +0.054148] usb 1-4: new full-speed USB device number 4 using xhci_hcd
+[  +0.077197] input: ELAN9008:00 04F3:2C82 as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input21
+[  +0.000165] input: ELAN9008:00 04F3:2C82 UNKNOWN as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input22
+[  +0.000154] input: ELAN9008:00 04F3:2C82 UNKNOWN as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input23
+[  +0.000186] input: ELAN9008:00 04F3:2C82 Stylus as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input24
+[  +0.000338] input: ELAN9008:00 04F3:2C82 UNKNOWN as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input26
+[  +0.000207] input: ELAN9008:00 04F3:2C82 UNKNOWN as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input27
+[  +0.000177] input: ELAN9008:00 04F3:2C82 UNKNOWN as /devices/platform/AMDI0010:00/i2c-0/i2c-ELAN9008:00/0018:04F3:2C82.0005/input/input28
+[  +0.030255] input: ELAN1201:00 04F3:3098 Mouse as /devices/platform/AMDI0010:03/i2c-1/i2c-ELAN1201:00/0018:04F3:3098.0006/input/input30
+[  +0.000118] input: ELAN1201:00 04F3:3098 Touchpad as /devices/platform/AMDI0010:03/i2c-1/i2c-ELAN1201:00/0018:04F3:3098.0006/input/input31
+[  +0.000104] hid-multitouch 0018:04F3:3098.0006: input,hidraw5: I2C HID v1.00 Mouse [ELAN1201:00 04F3:3098] on i2c-ELAN1201:00
+[  +0.000333] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:18/LNXVIDEO:00/input/input32
+[  +0.008400] hid-multitouch 0018:04F3:2C82.0005: input,hidraw4: I2C HID v1.00 Device [ELAN9008:00 04F3:2C82] on i2c-ELAN9008:00
+[  +0.000343] asus 0003:0B05:19B6.0002: using HID for asus::kbd_backlight
+[  +0.007534] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.0/0003:0B05:19B6.0002/input/input33
+[  +0.051320] asus 0003:0B05:19B6.0002: input,hiddev97,hidraw1: USB HID v1.10 Device [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input0
+[  +0.000692] asus 0003:0B05:19B6.0003: hiddev98,hidraw2: USB HID v1.10 Device [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input1
+[  +0.000007] asus 0003:0B05:19B6.0003: Asus input not registered
+[  +0.039278] BTRFS: device label fedora_localhost-live devid 1 transid 2084560 /dev/nvme0n1p7 (259:7) scanned by mount (519)
+[  +0.000351] BTRFS info (device nvme0n1p7): first mount of filesystem 96e255e2-a782-4704-8ce7-31b679cc3f77
+[  +0.000020] BTRFS info (device nvme0n1p7): using crc32c (crc32c-lib) checksum algorithm
+[  +0.047500] BTRFS info (device nvme0n1p7): enabling ssd optimizations
+[  +0.000006] BTRFS info (device nvme0n1p7): turning on async discard
+[  +0.000003] BTRFS info (device nvme0n1p7): enabling free space tree
+[  +0.020069] input: ASUSTeK Computer Inc. N-KEY Device as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-3/1-3:1.2/0003:0B05:19B6.0004/input/input34
+[  +0.114831] asus 0003:0B05:19B6.0004: input,hidraw2: USB HID v1.10 Keyboard [ASUSTeK Computer Inc. N-KEY Device] on usb-0000:08:00.3-3/input2
+[  +0.307818] systemd[1]: systemd 258.4-1.fc43 running in system mode (+PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE)
+[  +0.165288] systemd[1]: bpf-restrict-fs: LSM BPF program attached
+[  +0.154460] audit: type=1400 audit(1771157093.298:4): avc:  denied  { getattr } for  pid=1 comm="systemd" path="socket:[8613]" dev="sockfs" ino=8613 scontext=system_u:system_r:init_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=netlink_kobject_uevent_socket permissive=0
+[  +0.000311] BTRFS info (device nvme0n1p7 state M): use zstd compression, level 1
+[  +0.065924] input: Asus Wireless Radio Control as /devices/LNXSYSTM:00/LNXSYBUS:00/ATK4002:00/input/input35
+[  +0.036143] input: PC Speaker as /devices/platform/pcspkr/input/input36
+[  +0.002388] input: Asus WMI hotkeys as /devices/platform/asus-nb-wmi/input/input37
+[  +0.024065] ACPI: battery: new hook: ASUS Battery Extension
+[  +0.011933] hid-generic 0020:1022:0001.0007: hidraw3: SENSOR HUB HID v0.00 Device [hid-amdsfh 1022:0001] on pcie_mp2_amd
+[  +0.013259] hid-sensor-hub 0020:1022:0001.0007: hidraw3: SENSOR HUB HID v0.00 Device [hid-amdsfh 1022:0001] on pcie_mp2_amd
+[  +0.085302] input: HD-Audio Generic HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:08.1/0000:08:00.1/sound/card0/input38
+[  +0.001002] input: HD-Audio Generic HDMI/DP,pcm=7 as /devices/pci0000:00/0000:00:08.1/0000:08:00.1/sound/card0/input39
+[  +0.002968] input: HD-Audio Generic HDMI/DP,pcm=8 as /devices/pci0000:00/0000:00:08.1/0000:08:00.1/sound/card0/input40
+[  +0.000002] snd_hda_codec_alc269 hdaudioC1D0:    inputs:
+[  +0.107735] Bluetooth: Core ver 2.22
+[  +0.017177] NET: Registered PF_BLUETOOTH protocol family
+[  +0.000009] Bluetooth: HCI device and connection manager initialized
+[  +0.000008] Bluetooth: HCI socket layer initialized
+[  +0.000004] Bluetooth: L2CAP socket layer initialized
+[  +0.000019] Bluetooth: SCO socket layer initialized
+[  +0.069257] usbcore: registered new interface driver btusb
+[  +0.059570] Bluetooth: hci0: Found device firmware: intel/ibt-20-1-3.sfi
+[  +0.000106] Bluetooth: hci0: Boot Address: 0x24800
+[  +0.000004] Bluetooth: hci0: Firmware Version: 193-33.24
+[  +0.000003] Bluetooth: hci0: Firmware already loaded
+[  +0.007572] Bluetooth: hci0: HCI LE Coded PHY feature bit is set, but its usage is not supported.
+[  +0.096182] input: HD-Audio Generic Headset Mic as /devices/pci0000:00/0000:00:08.1/0000:08:00.6/sound/card1/input41
+[  +0.001558] input: HD-Audio Generic Headphone as /devices/pci0000:00/0000:00:08.1/0000:08:00.6/sound/card1/input42
+[  +0.271672] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[  +0.000011] Bluetooth: BNEP filters: protocol multicast
+[  +0.000008] Bluetooth: BNEP socket layer initialized
+[  +0.002985] Bluetooth: MGMT ver 1.23
+[  +1.158158] Bluetooth: RFCOMM TTY layer initialized
+[  +0.000016] Bluetooth: RFCOMM socket layer initialized
+[  +0.000008] Bluetooth: RFCOMM ver 1.11
+[  +1.345337] rfkill: input handler disabled
+[  +1.934294] rfkill: input handler enabled
+[  +0.043929] input: ydotoold virtual device as /devices/virtual/input/input43
+[ +11.239073] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input44
+[  +0.000844] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input45
+[  +0.000171] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input46
+[  +0.000238] hid-generic 0005:045E:0B22.0008: input,hidraw6: BLUETOOTH HID v5.23 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.022695] loaded hid-xpadneo v0.10-pre-259-gfc1b13a
+[  +0.114283] xpadneo 0005:045E:0B22.0008: BLE firmware version 5.23
+[  +0.000006] xpadneo 0005:045E:0B22.0008: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000004] xpadneo 0005:045E:0B22.0008: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000003] xpadneo 0005:045E:0B22.0008: report descriptor size: 464 bytes
+[  +0.000003] xpadneo 0005:045E:0B22.0008: fixing up Rx axis
+[  +0.000002] xpadneo 0005:045E:0B22.0008: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.0008: fixing up Z axis
+[  +0.000002] xpadneo 0005:045E:0B22.0008: fixing up Rz axis
+[  +0.000003] xpadneo 0005:045E:0B22.0008: fixing up button mapping
+[  +0.000148] xpadneo 0005:045E:0B22.0008: gamepad detected
+[  +0.000052] xpadneo 0005:045E:0B22.0008: enabling compliance with Linux Gamepad Specification
+[  +0.000082] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input47
+[  +0.000303] xpadneo 0005:045E:0B22.0008: consumer control detected
+[  +0.000058] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input48
+[  +0.000145] xpadneo 0005:045E:0B22.0008: keyboard detected
+[  +0.000053] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.0008/input/input49
+[  +0.000276] xpadneo 0005:045E:0B22.0008: input,hidraw6: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000012] xpadneo 0005:045E:0B22.0008: controller quirks: 0x00000250
+[  +0.000005] xpadneo xpadneo_welcome_rumble start
+[  +0.000004] xpadneo 0005:045E:0B22.0008: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330291] xpadneo 0005:045E:0B22.0008: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330291] xpadneo 0005:045E:0B22.0008: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330296] xpadneo xpadneo_welcome_rumble took 990ms
+[  +0.000009] xpadneo 0005:045E:0B22.0008: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +0.189229] xpadneo 0005:045E:0B22.0008: mapping profiles detected
+[  +0.000006] xpadneo 0005:045E:0B22.0008: switching profile to 3
+[ +16.592795] input: TK-MS317  5.0 as /devices/virtual/misc/uhid/0005:25A7:FAA0.0009/input/input50
+[  +0.000562] hid-generic 0005:25A7:FAA0.0009: input,hidraw7: BLUETOOTH HID v5.08 Mouse [TK-MS317  5.0] on 38:fc:98:b0:91:2b
+[Feb15 13:12] usb 1-2: new full-speed USB device number 5 using xhci_hcd
+[  +0.142504] usb 1-2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.048252] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.0/input/input51
+[  +0.329172] xpadneo 0005:045E:0B22.0008: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000008] xpadneo 0005:045E:0B22.0008: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +1.471560] xpadneo 0005:045E:0B22.000A: BLE firmware version 5.23
+[  +0.000006] xpadneo 0005:045E:0B22.000A: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000003] xpadneo 0005:045E:0B22.000A: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000002] xpadneo 0005:045E:0B22.000A: report descriptor size: 464 bytes
+[  +0.000003] xpadneo 0005:045E:0B22.000A: fixing up Rx axis
+[  +0.000002] xpadneo 0005:045E:0B22.000A: fixing up Ry axis
+[  +0.000001] xpadneo 0005:045E:0B22.000A: fixing up Z axis
+[  +0.000002] xpadneo 0005:045E:0B22.000A: fixing up Rz axis
+[  +0.000001] xpadneo 0005:045E:0B22.000A: fixing up button mapping
+[  +0.000110] xpadneo 0005:045E:0B22.000A: gamepad detected
+[  +0.000002] xpadneo 0005:045E:0B22.000A: enabling compliance with Linux Gamepad Specification
+[  +0.000060] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.000A/input/input52
+[  +0.000403] xpadneo 0005:045E:0B22.000A: consumer control detected
+[  +0.000052] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.000A/input/input53
+[  +0.000068] xpadneo 0005:045E:0B22.000A: keyboard detected
+[  +0.000043] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.000A/input/input54
+[  +0.000362] xpadneo 0005:045E:0B22.000A: input,hidraw0: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000005] xpadneo 0005:045E:0B22.000A: controller quirks: 0x00000250
+[  +0.000002] xpadneo xpadneo_welcome_rumble start
+[  +0.000002] xpadneo 0005:045E:0B22.000A: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330333] xpadneo 0005:045E:0B22.000A: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330245] xpadneo 0005:045E:0B22.000A: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330285] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000011] xpadneo 0005:045E:0B22.000A: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[ +17.994774] usb 1-2: new full-speed USB device number 6 using xhci_hcd
+[  +0.348628] input: HP, Inc HyperX Cloud Stinger 2 Wireless Consumer Control as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.000B/input/input55
+[  +0.051125] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.000B/input/input56
+[  +0.000173] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.000B/input/input57
+[  +0.000134] input: HP, Inc HyperX Cloud Stinger 2 Wireless as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-2/1-2:1.3/0003:03F0:0D93.000B/input/input58
+[  +0.000251] hid-generic 0003:03F0:0D93.000B: input,hiddev96,hidraw6: USB HID v1.11 Device [HP, Inc HyperX Cloud Stinger 2 Wireless] on usb-0000:08:00.3-2/input3
+[Feb15 13:13] xpadneo 0005:045E:0B22.000A: mapping profiles detected
+[  +0.000013] xpadneo 0005:045E:0B22.000A: switching profile to 3
+[Feb15 13:16] usb 1-1: new high-speed USB device number 7 using xhci_hcd
+[  +0.079564] usb 2-1: new SuperSpeed USB device number 2 using xhci_hcd
+[  +0.831667] usb 2-1.1: new SuperSpeed USB device number 3 using xhci_hcd
+[  +0.000476] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[  +0.000431] sd 0:0:0:1: Attached scsi generic sg1 type 0
+[  +0.012456] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[  +0.000010] sd 0:0:0:1: [sdb] Attached SCSI removable disk
+[ +25.858656] usb 1-1.2: new full-speed USB device number 9 using xhci_hcd
+[  +0.133594] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.087182] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input59
+[  +0.346451] xpadneo 0005:045E:0B22.000A: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000008] xpadneo 0005:045E:0B22.000A: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +0.698930] xpadneo 0005:045E:0B22.000C: BLE firmware version 5.23
+[  +0.000008] xpadneo 0005:045E:0B22.000C: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000004] xpadneo 0005:045E:0B22.000C: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000004] xpadneo 0005:045E:0B22.000C: report descriptor size: 464 bytes
+[  +0.000003] xpadneo 0005:045E:0B22.000C: fixing up Rx axis
+[  +0.000003] xpadneo 0005:045E:0B22.000C: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.000C: fixing up Z axis
+[  +0.000003] xpadneo 0005:045E:0B22.000C: fixing up Rz axis
+[  +0.000002] xpadneo 0005:045E:0B22.000C: fixing up button mapping
+[  +0.000142] xpadneo 0005:045E:0B22.000C: gamepad detected
+[  +0.000003] xpadneo 0005:045E:0B22.000C: enabling compliance with Linux Gamepad Specification
+[  +0.000078] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.000C/input/input60
+[  +0.000147] xpadneo 0005:045E:0B22.000C: consumer control detected
+[  +0.000056] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.000C/input/input61
+[  +0.000085] xpadneo 0005:045E:0B22.000C: keyboard detected
+[  +0.000046] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.000C/input/input62
+[  +0.000111] xpadneo 0005:045E:0B22.000C: input,hidraw0: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000006] xpadneo 0005:045E:0B22.000C: controller quirks: 0x00000250
+[  +0.000004] xpadneo xpadneo_welcome_rumble start
+[  +0.000001] xpadneo 0005:045E:0B22.000C: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330253] xpadneo 0005:045E:0B22.000C: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330230] xpadneo 0005:045E:0B22.000C: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330284] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000008] xpadneo 0005:045E:0B22.000C: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +1.338559] xpadneo 0005:045E:0B22.000C: mapping profiles detected
+[  +0.000012] xpadneo 0005:045E:0B22.000C: switching profile to 3
+[  +8.048716] usb 1-1.2: new full-speed USB device number 10 using xhci_hcd
+[  +0.122563] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.096633] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input63
+[  +0.348062] xpadneo 0005:045E:0B22.000C: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000009] xpadneo 0005:045E:0B22.000C: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +0.896259] xpadneo 0005:045E:0B22.000D: BLE firmware version 5.23
+[  +0.000006] xpadneo 0005:045E:0B22.000D: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000003] xpadneo 0005:045E:0B22.000D: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000003] xpadneo 0005:045E:0B22.000D: report descriptor size: 464 bytes
+[  +0.000002] xpadneo 0005:045E:0B22.000D: fixing up Rx axis
+[  +0.000002] xpadneo 0005:045E:0B22.000D: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.000D: fixing up Z axis
+[  +0.000001] xpadneo 0005:045E:0B22.000D: fixing up Rz axis
+[  +0.000002] xpadneo 0005:045E:0B22.000D: fixing up button mapping
+[  +0.000106] xpadneo 0005:045E:0B22.000D: gamepad detected
+[  +0.000002] xpadneo 0005:045E:0B22.000D: enabling compliance with Linux Gamepad Specification
+[  +0.000059] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.000D/input/input64
+[  +0.000116] xpadneo 0005:045E:0B22.000D: consumer control detected
+[  +0.000038] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.000D/input/input65
+[  +0.000436] xpadneo 0005:045E:0B22.000D: keyboard detected
+[  +0.000037] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.000D/input/input66
+[  +0.000141] xpadneo 0005:045E:0B22.000D: input,hidraw0: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000006] xpadneo 0005:045E:0B22.000D: controller quirks: 0x00000250
+[  +0.000004] xpadneo xpadneo_welcome_rumble start
+[  +0.000002] xpadneo 0005:045E:0B22.000D: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330244] xpadneo 0005:045E:0B22.000D: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330244] xpadneo 0005:045E:0B22.000D: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330285] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000010] xpadneo 0005:045E:0B22.000D: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +0.837893] xpadneo 0005:045E:0B22.000D: mapping profiles detected
+[  +0.000007] xpadneo 0005:045E:0B22.000D: switching profile to 3
+[  +7.472806] usb 1-1.2: new full-speed USB device number 11 using xhci_hcd
+[  +0.134607] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.067347] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input67
+[  +0.342279] xpadneo 0005:045E:0B22.000D: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000007] xpadneo 0005:045E:0B22.000D: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +8.021426] xpadneo 0005:045E:0B22.000E: BLE firmware version 5.23
+[  +0.000006] xpadneo 0005:045E:0B22.000E: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000003] xpadneo 0005:045E:0B22.000E: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000003] xpadneo 0005:045E:0B22.000E: report descriptor size: 464 bytes
+[  +0.000002] xpadneo 0005:045E:0B22.000E: fixing up Rx axis
+[  +0.000002] xpadneo 0005:045E:0B22.000E: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.000E: fixing up Z axis
+[  +0.000001] xpadneo 0005:045E:0B22.000E: fixing up Rz axis
+[  +0.000002] xpadneo 0005:045E:0B22.000E: fixing up button mapping
+[  +0.000099] xpadneo 0005:045E:0B22.000E: gamepad detected
+[  +0.000003] xpadneo 0005:045E:0B22.000E: enabling compliance with Linux Gamepad Specification
+[  +0.000055] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.000E/input/input68
+[  +0.000232] xpadneo 0005:045E:0B22.000E: consumer control detected
+[  +0.000042] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.000E/input/input69
+[  +0.000048] xpadneo 0005:045E:0B22.000E: keyboard detected
+[  +0.000032] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.000E/input/input70
+[  +0.000106] xpadneo 0005:045E:0B22.000E: input,hidraw0: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000005] xpadneo 0005:045E:0B22.000E: controller quirks: 0x00000250
+[  +0.000002] xpadneo xpadneo_welcome_rumble start
+[  +0.000002] xpadneo 0005:045E:0B22.000E: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330232] xpadneo 0005:045E:0B22.000E: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330240] xpadneo 0005:045E:0B22.000E: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330294] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000009] xpadneo 0005:045E:0B22.000E: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +1.372068] xpadneo 0005:045E:0B22.000E: mapping profiles detected
+[  +0.000007] xpadneo 0005:045E:0B22.000E: switching profile to 3
+[  +4.198810] usb 1-1.2: new full-speed USB device number 12 using xhci_hcd
+[  +0.123706] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.077448] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input71
+[  +0.339128] xpadneo 0005:045E:0B22.000E: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000011] xpadneo 0005:045E:0B22.000E: reverting to original product (changed PID from 0x028E to 0x0B22)
+[ +24.336777] usb 1-1.2: new full-speed USB device number 13 using xhci_hcd
+[  +0.122496] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.085352] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input72
+[Feb15 14:31] input: TK-MS317  5.0 as /devices/virtual/misc/uhid/0005:25A7:FAA0.000F/input/input73
+[  +0.000248] hid-generic 0005:25A7:FAA0.000F: input,hidraw0: BLUETOOTH HID v5.08 Mouse [TK-MS317  5.0] on 38:fc:98:b0:91:2b
+[  +7.897118] xpadneo 0005:045E:0B22.0010: BLE firmware version 5.23
+[  +0.000010] xpadneo 0005:045E:0B22.0010: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000005] xpadneo 0005:045E:0B22.0010: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000005] xpadneo 0005:045E:0B22.0010: report descriptor size: 464 bytes
+[  +0.000003] xpadneo 0005:045E:0B22.0010: fixing up Rx axis
+[  +0.000003] xpadneo 0005:045E:0B22.0010: fixing up Ry axis
+[  +0.000003] xpadneo 0005:045E:0B22.0010: fixing up Z axis
+[  +0.000003] xpadneo 0005:045E:0B22.0010: fixing up Rz axis
+[  +0.000002] xpadneo 0005:045E:0B22.0010: fixing up button mapping
+[  +0.000525] xpadneo 0005:045E:0B22.0010: gamepad detected
+[  +0.000005] xpadneo 0005:045E:0B22.0010: enabling compliance with Linux Gamepad Specification
+[  +0.000113] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.0010/input/input74
+[  +0.000324] xpadneo 0005:045E:0B22.0010: consumer control detected
+[  +0.000090] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.0010/input/input75
+[  +0.000100] xpadneo 0005:045E:0B22.0010: keyboard detected
+[  +0.000068] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.0010/input/input76
+[  +0.000237] xpadneo 0005:045E:0B22.0010: input,hidraw7: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000011] xpadneo 0005:045E:0B22.0010: controller quirks: 0x00000250
+[  +0.000004] xpadneo xpadneo_welcome_rumble start
+[  +0.000003] xpadneo 0005:045E:0B22.0010: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330345] xpadneo 0005:045E:0B22.0010: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330279] xpadneo 0005:045E:0B22.0010: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330339] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000013] xpadneo 0005:045E:0B22.0010: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +3.699906] xpadneo 0005:045E:0B22.0010: mapping profiles detected
+[  +0.000011] xpadneo 0005:045E:0B22.0010: switching profile to 3
+[Feb15 15:03] usb 1-1.2: new full-speed USB device number 14 using xhci_hcd
+[  +0.132738] usb 1-1.2: New USB device found, idVendor=045e, idProduct=0b00, bcdDevice= 5.17
+[  +0.088206] input: Microsoft X-Box One Elite 2 pad as /devices/pci0000:00/0000:00:08.1/0000:08:00.3/usb1/1-1/1-1.2/1-1.2:1.0/input/input77
+[  +0.490633] xpadneo 0005:045E:0B22.0010: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000012] xpadneo 0005:045E:0B22.0010: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +7.642397] xpadneo 0005:045E:0B22.0011: BLE firmware version 5.23
+[  +0.000006] xpadneo 0005:045E:0B22.0011: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000003] xpadneo 0005:045E:0B22.0011: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000002] xpadneo 0005:045E:0B22.0011: report descriptor size: 464 bytes
+[  +0.000003] xpadneo 0005:045E:0B22.0011: fixing up Rx axis
+[  +0.000001] xpadneo 0005:045E:0B22.0011: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.0011: fixing up Z axis
+[  +0.000002] xpadneo 0005:045E:0B22.0011: fixing up Rz axis
+[  +0.000001] xpadneo 0005:045E:0B22.0011: fixing up button mapping
+[  +0.000100] xpadneo 0005:045E:0B22.0011: gamepad detected
+[  +0.000003] xpadneo 0005:045E:0B22.0011: enabling compliance with Linux Gamepad Specification
+[  +0.000066] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.0011/input/input78
+[  +0.000171] xpadneo 0005:045E:0B22.0011: consumer control detected
+[  +0.000034] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.0011/input/input79
+[  +0.000040] xpadneo 0005:045E:0B22.0011: keyboard detected
+[  +0.000029] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.0011/input/input80
+[  +0.000122] xpadneo 0005:045E:0B22.0011: input,hidraw7: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000005] xpadneo 0005:045E:0B22.0011: controller quirks: 0x00000250
+[  +0.000002] xpadneo xpadneo_welcome_rumble start
+[  +0.000002] xpadneo 0005:045E:0B22.0011: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330244] xpadneo 0005:045E:0B22.0011: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330241] xpadneo 0005:045E:0B22.0011: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330268] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000013] xpadneo 0005:045E:0B22.0011: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +2.416959] xpadneo 0005:045E:0B22.0011: mapping profiles detected
+[Feb15 15:29] xpadneo 0005:045E:0B22.0011: reverting to original version (changed version from 0x00001130 to 0x00000523)
+[  +0.000009] xpadneo 0005:045E:0B22.0011: reverting to original product (changed PID from 0x028E to 0x0B22)
+[  +3.605057] xpadneo 0005:045E:0B22.0012: BLE firmware version 5.23
+[  +0.000008] xpadneo 0005:045E:0B22.0012: pretending XB1S Windows wireless mode (changed PID from 0x0B22 to 0x028E)
+[  +0.000004] xpadneo 0005:045E:0B22.0012: working around wrong SDL2 mappings (changed version from 0x00000523 to 0x00001130)
+[  +0.000003] xpadneo 0005:045E:0B22.0012: report descriptor size: 464 bytes
+[  +0.000004] xpadneo 0005:045E:0B22.0012: fixing up Rx axis
+[  +0.000002] xpadneo 0005:045E:0B22.0012: fixing up Ry axis
+[  +0.000002] xpadneo 0005:045E:0B22.0012: fixing up Z axis
+[  +0.000003] xpadneo 0005:045E:0B22.0012: fixing up Rz axis
+[  +0.000002] xpadneo 0005:045E:0B22.0012: fixing up button mapping
+[  +0.000148] xpadneo 0005:045E:0B22.0012: gamepad detected
+[  +0.000003] xpadneo 0005:045E:0B22.0012: enabling compliance with Linux Gamepad Specification
+[  +0.000072] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:0B22.0012/input/input81
+[  +0.000196] xpadneo 0005:045E:0B22.0012: consumer control detected
+[  +0.000078] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:0B22.0012/input/input82
+[  +0.000462] xpadneo 0005:045E:0B22.0012: keyboard detected
+[  +0.000039] input: Xbox Wireless Controller Keyboard as /devices/virtual/misc/uhid/0005:045E:0B22.0012/input/input83
+[  +0.000160] xpadneo 0005:045E:0B22.0012: input,hidraw7: BLUETOOTH HID v11.30 Gamepad [Xbox Wireless Controller] on 38:fc:98:b0:91:2b
+[  +0.000006] xpadneo 0005:045E:0B22.0012: controller quirks: 0x00000250
+[  +0.000004] xpadneo xpadneo_welcome_rumble start
+[  +0.000002] xpadneo 0005:045E:0B22.0012: testing weak motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330246] xpadneo 0005:045E:0B22.0012: testing strong motor: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330235] xpadneo 0005:045E:0B22.0012: testing trigger motors: sustain 50ms release 50ms loop 2 wait 30ms
+[  +0.330286] xpadneo xpadneo_welcome_rumble took 991ms
+[  +0.000015] xpadneo 0005:045E:0B22.0012: Xbox Wireless Controller [78:86:2e:78:38:88] connected
+[  +1.075059] xpadneo 0005:045E:0B22.0012: mapping profiles detected
