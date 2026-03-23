@@ -1,8 +1,8 @@
 import {GamepadsManager} from './gamepadsManager.js';
-import {type HookName, HOOKS} from './hooks.js';
+// import {type HookName, HOOKS} from './hooks.js';
 import {type MiniGamepadOptions} from './options.js';
 import {sleep} from './utils.js';
-import {isDev} from '@vdegenne/debug';
+// import {isDev} from '@vdegenne/debug';
 
 // const logger = new Logger();
 

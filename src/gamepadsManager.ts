@@ -1,5 +1,5 @@
 // import {Debouncer} from '@vdegenne/debouncer';
-import {type Logger} from '@vdegenne/debug';
+// import {type Logger} from '@vdegenne/debug';
 import {MGamepad} from './MGamepad.js';
 import Debouncer from './debouncer.js';
 import {HOOKS} from './hooks.js';
@@ -67,8 +67,8 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		if (this.#options.debug) {
-			const logFn =
-				this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
+			const logFn = console.log;
+			// this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
 			logFn(`${gamepad.id} just got connected.`);
 		}
 		// if (this.options.toastModel) {
@@ -90,8 +90,8 @@ export class GamepadsManager {
 			throw new Error('Something not quite right here.');
 		}
 		if (this.#options.debug) {
-			const logFn =
-				this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
+			const logFn = console.log;
+			// this.#options.logger?.log.bind(this.#options.logger) ?? console.log;
 			logFn(`${mgamepad._gamepad.id} just got disconnected.`);
 		}
 		HOOKS.forEach((hook) => hook.hooks('disconnect', this.gamepads[index]));
