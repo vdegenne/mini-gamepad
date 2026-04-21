@@ -34,17 +34,16 @@ export class GamepadsManager {
 
 		this.poll = new Poll(this, options);
 
+		let i = 0;
 		window.addEventListener('blur', () => {
-			return;
 			if (options.backgroundActivity === false) {
+				this.gamepads.forEach((gamepad) => gamepad && gamepad.resetButtons()); // For sticky buttons
 				this.disableAll();
 			}
 		});
 		window.addEventListener('focus', () => {
-			return;
 			if (options.backgroundActivity === false) {
 				setTimeout(() => {
-					this.gamepads.forEach((gamepad) => gamepad && gamepad.resetButtons()); // For sticky buttons
 					this.reenableAll();
 				}, options.focusDeadTimeMs);
 			}
