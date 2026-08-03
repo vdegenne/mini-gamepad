@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"module": "NodeNext",
+		"target": "esnext",
+		"module": "nodenext",
 		"moduleResolution": "nodenext",
 		"strict": false,
 		"useDefineForClassFields": false,
 		"experimentalDecorators": true,
-		"outDir": "./lib",
+		"outDir": "./lib/",
+		"rootDir": "./src/",
 		"declaration": true,
 		"declarationMap": true,
 		"skipLibCheck": true,
